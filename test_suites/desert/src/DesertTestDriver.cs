@@ -206,7 +206,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
         {
             step = -1;
             GameLogger.Log("TEST", $"[TEST_RESULT] name=desert passed={passed} failed={failed}");
-            GetTree().Quit(failed == 0 ? 0 : 1);
+            Cthangover.Core.Bootstrap.ApplicationExit.Quit(GetTree(), failed == 0 ? 0 : 1);
         }
     }
 }
