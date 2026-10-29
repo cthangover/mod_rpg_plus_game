@@ -1,0 +1,17 @@
+{
+  "Events": [
+    {
+      "Id": "village_to_desert",
+      "X": 0,
+      "Y": 9,
+      "Trigger": "Touch",
+      "Solid": false,
+      "Teleport": {
+        "Map": "rpg_desert",
+        "X": 38,
+        "Y": 12,
+        "Dir": "Left"
+      }
+    }
+  ]
+}

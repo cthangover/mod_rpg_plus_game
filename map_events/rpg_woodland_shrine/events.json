@@ -4,6 +4,8 @@
       "Id": "shrine_exit",
       "X": 1,
       "Y": 11,
+      "Tile": -1,
+      "Dir": "Down",
       "Trigger": "Touch",
       "Teleport": {
         "Map": "rpg_forest",
@@ -17,14 +19,12 @@
       "X": 12,
       "Y": 5,
       "Tile": 36,
+      "Dir": "Down",
+      "Trigger": "Action",
       "Scenario": "rpg_plus/woodland/beacon",
-      "Light": {
-        "Radius": 2,
-        "Color": "#699baf"
-      },
       "Pages": [
         {
-          "Condition": "rpg_ward_done == 1 && rpg_ward_choice == 'pact'",
+          "Condition": "rpg_ward_done == 1 \u0026\u0026 rpg_ward_choice == \u0027pact\u0027",
           "Tile": 36,
           "Light": {
             "Radius": 6,
@@ -32,14 +32,18 @@
           }
         },
         {
-          "Condition": "rpg_ward_done == 1 && rpg_ward_choice == 'free'",
+          "Condition": "rpg_ward_done == 1 \u0026\u0026 rpg_ward_choice == \u0027free\u0027",
           "Tile": 38,
           "Light": {
             "Radius": 6,
             "Color": "#9ce3c7"
           }
         }
-      ]
+      ],
+      "Light": {
+        "Radius": 2,
+        "Color": "#699baf"
+      }
     }
   ]
 }

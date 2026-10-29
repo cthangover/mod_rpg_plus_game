@@ -1,0 +1,96 @@
+{
+  "Events": [
+    {
+      "Id": "supply_rpg_village_19_11",
+      "X": 19,
+      "Y": 11,
+      "Sprite": "desert/barrel_closed",
+      "Trigger": "Action",
+      "Solid": true,
+      "Commands": [
+        "flag supply_rpg_village_19_11_open 1",
+        "action item.add id=money/coin count=2",
+        "action item.add id=rpg_demo/branches count=1",
+        "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 связка хвороста.\" key=rpg_plus/desert/barrel/supply_rpg_village_19_11"
+      ],
+      "Pages": [
+        {
+          "Condition": "supply_rpg_village_19_11_open == 1",
+          "Sprite": "desert/barrel_open",
+          "Commands": [
+            "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/desert/barrel/empty"
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "supply_rpg_village_20_11",
+      "X": 20,
+      "Y": 11,
+      "Sprite": "desert/barrel_closed",
+      "Trigger": "Action",
+      "Solid": true,
+      "Commands": [
+        "flag supply_rpg_village_20_11_open 1",
+        "action item.add id=money/coin count=2",
+        "action item.add id=rpg_demo/branches count=1",
+        "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 связка хвороста.\" key=rpg_plus/desert/barrel/supply_rpg_village_20_11"
+      ],
+      "Pages": [
+        {
+          "Condition": "supply_rpg_village_20_11_open == 1",
+          "Sprite": "desert/barrel_open",
+          "Commands": [
+            "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/desert/barrel/empty"
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "supply_rpg_village_4_7",
+      "X": 4,
+      "Y": 7,
+      "Sprite": "desert/barrel_closed",
+      "Trigger": "Action",
+      "Solid": true,
+      "Commands": [
+        "flag supply_rpg_village_4_7_open 1",
+        "action item.add id=money/coin count=2",
+        "action item.add id=rpg_plus/resin count=1",
+        "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 смола.\" key=rpg_plus/desert/barrel/supply_rpg_village_4_7"
+      ],
+      "Pages": [
+        {
+          "Condition": "supply_rpg_village_4_7_open == 1",
+          "Sprite": "desert/barrel_open",
+          "Commands": [
+            "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/desert/barrel/empty"
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "supply_rpg_village_22_11",
+      "X": 22,
+      "Y": 11,
+      "Sprite": "desert/barrel_closed",
+      "Trigger": "Action",
+      "Solid": true,
+      "Commands": [
+        "flag supply_rpg_village_22_11_open 1",
+        "action item.add id=money/coin count=2",
+        "action item.add id=rpg_plus/resin count=1",
+        "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 смола.\" key=rpg_plus/desert/barrel/supply_rpg_village_22_11"
+      ],
+      "Pages": [
+        {
+          "Condition": "supply_rpg_village_22_11_open == 1",
+          "Sprite": "desert/barrel_open",
+          "Commands": [
+            "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/desert/barrel/empty"
+          ]
+        }
+      ]
+    }
+  ]
+}

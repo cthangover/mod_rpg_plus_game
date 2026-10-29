@@ -1,0 +1,7 @@
+scene: rpg_desert
+priority: 10
+is_one_run: true
+save_allowed: true
+---
+ptext "За последним деревом кончается тень. Скорпионы здесь крупнее местных надежд." key=rpg_plus/desert/enter
+end
