@@ -1,0 +1,73 @@
+{
+  "Events": [
+    {
+      "Id": "supply_rpg_elder_house_1_2",
+      "X": 1,
+      "Y": 2,
+      "Sprite": "desert/barrel_closed",
+      "Trigger": "Action",
+      "Solid": true,
+      "Commands": [
+        "flag supply_rpg_elder_house_1_2_open 1",
+        "action item.add id=money/coin count=2",
+        "action item.add id=rpg_demo/branches count=1",
+        "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 связка хвороста.\" key=rpg_plus/desert/barrel/supply_rpg_elder_house_1_2"
+      ],
+      "Pages": [
+        {
+          "Condition": "supply_rpg_elder_house_1_2_open == 1",
+          "Sprite": "desert/barrel_open",
+          "Commands": [
+            "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/desert/barrel/empty"
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "supply_rpg_elder_house_2_2",
+      "X": 2,
+      "Y": 2,
+      "Sprite": "desert/barrel_closed",
+      "Trigger": "Action",
+      "Solid": true,
+      "Commands": [
+        "flag supply_rpg_elder_house_2_2_open 1",
+        "action item.add id=money/coin count=2",
+        "action item.add id=rpg_demo/branches count=1",
+        "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 связка хвороста.\" key=rpg_plus/desert/barrel/supply_rpg_elder_house_2_2"
+      ],
+      "Pages": [
+        {
+          "Condition": "supply_rpg_elder_house_2_2_open == 1",
+          "Sprite": "desert/barrel_open",
+          "Commands": [
+            "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/desert/barrel/empty"
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "supply_rpg_elder_house_10_2",
+      "X": 10,
+      "Y": 2,
+      "Sprite": "desert/barrel_closed",
+      "Trigger": "Action",
+      "Solid": true,
+      "Commands": [
+        "flag supply_rpg_elder_house_10_2_open 1",
+        "action item.add id=money/coin count=2",
+        "action item.add id=rpg_demo/branches count=1",
+        "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 связка хвороста.\" key=rpg_plus/desert/barrel/supply_rpg_elder_house_10_2"
+      ],
+      "Pages": [
+        {
+          "Condition": "supply_rpg_elder_house_10_2_open == 1",
+          "Sprite": "desert/barrel_open",
+          "Commands": [
+            "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/desert/barrel/empty"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -33,6 +33,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
         private readonly Queue<int> choices = new();
         private readonly bool pact;
         private readonly string shots;
+        private readonly bool terrainReview;
         private int step;
         private int ticks;
         private int passed;
@@ -60,6 +61,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
         {
             this.pact = pact;
             this.shots = shots;
+            terrainReview = OS.GetCmdlineUserArgs().Contains("--terrain-review");
             Name = "WoodlandTestDriver";
             var timer = new Timer { WaitTime = 0.1, Autostart = true };
             timer.Timeout += Tick;
@@ -204,6 +206,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Go("rpg_elder_house", 6, 4, RpgDirection.Up); Next(); return;
                 case 21:
                     if (View?.Map.ID != "rpg_elder_house") return;
+                    Shot("interior");
                     Tap(Key.E); Next(); return;
                 case 22:
                     Check(Quest("ward").Data.Status == 2, "elder supplies the lantern recipe objective");
@@ -423,10 +426,47 @@ namespace Cthangover.Mods.RpgPlus.Tests
             if (villageShotPhase == 1)
             {
                 Shot("village");
-                time.SetTime(shotTime);
+                if (terrainReview)
+                    CheckWaterMaterials();
+                else
+                    time.SetTime(shotTime);
                 villageShotPhase = 2;
             }
             return true;
+        }
+
+        private void CheckWaterMaterials()
+        {
+            var tileset = View.Tileset;
+            var textures = new RpgTextures();
+            Check(tileset.Image == "village/objects" && tileset.SurfaceImage == "village/surfaces",
+                "objects and surfaces use separate atlases");
+            Check(tileset.TileOf(40)?.Surface != null && tileset.AutotileOf(40) == null,
+                "water uses a base material with runtime diffusion");
+            Check(tileset.Tiles.Count(t => t.Surface != null) == 7 &&
+                  tileset.Tiles.All(t => t.Index < 192 || t.Index >= 1000 && t.Index < 1120),
+                "only seven base surfaces remain, with no baked phase or transition ids");
+            var roomTop = tileset.TileOf(1000)?.AtlasIndex ?? -1;
+            var roomPacked = roomTop >= 0 && roomTop % tileset.Columns + 12 <= tileset.Columns;
+            for (var cell = 0; cell < 120; cell++)
+                roomPacked &= tileset.TileOf(1000 + cell)?.AtlasIndex == roomTop + cell / 12 * tileset.Columns + cell % 12;
+            Check(roomPacked, "the authored room occupies a connected 12x10 atlas block");
+            Check(View.Presentation?.SurfaceChunkCount > 0,
+                "the world renders the computed surface layer");
+            var caveTop = tileset.TileOf(128)?.AtlasIndex ?? -1;
+            Check(caveTop >= 0 && caveTop % tileset.Columns + 1 < tileset.Columns &&
+                  tileset.TileOf(129)?.AtlasIndex == caveTop + 1 &&
+                  tileset.TileOf(27)?.AtlasIndex == caveTop + tileset.Columns &&
+                  tileset.TileOf(130)?.AtlasIndex == caveTop + tileset.Columns + 1,
+                "the cave occupies a complete 2x2 atlas rectangle");
+            var lampTop = tileset.TileOf(29)?.AtlasIndex ?? -1;
+            Check(lampTop >= 0 && tileset.TileOf(28)?.AtlasIndex == lampTop + tileset.Columns,
+                "the streetlamp head and foot form one vertical atlas rectangle");
+            var grid = RpgMapGrid.Parse(View.Map);
+            var generated = RpgSurfaceRenderer.Build(grid, RpgLayer.Back, tileset, textures);
+            Check(generated?.GetWidth() == grid.Width * tileset.TileSize,
+                "diffusion is generated from the current map at runtime");
+            generated?.Dispose();
         }
 
         private void Shot(string name)

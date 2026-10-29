@@ -3,7 +3,7 @@
   "name": "RPG Plus",
   "version": "1.0.0",
   "author": "ct",
-  "description": "A woodland RPG with a class prologue, a village ward mystery, an apothecary and missing courier, a ruined shrine with two endings, monster loot and recipes. World and story are data and scenarios; crafting is a separate reusable mechanic.",
+  "description": "A complete small RPG: a prologue that picks the class, a village and forest mystery, crafting, trade, a desert and turn-based battles — data and scenarios only.",
   "category": "story",
   "depends": [
     "rpg_demo_game>=1",
@@ -30,6 +30,12 @@
       "id": "woodland",
       "activate": [
         "--itest=woodland"
+      ]
+    },
+    {
+      "id": "desert",
+      "activate": [
+        "--itest=desert"
       ]
     }
   ]

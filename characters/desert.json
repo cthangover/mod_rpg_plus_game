@@ -1,0 +1,75 @@
+{
+  "Kind": "character",
+  "Items": [
+    {
+      "Id": "rpg_desert_scorpion",
+      "Name": "rpg_plus/desert/enemy/scorpion/name",
+      "Image": "characters/desert/scorpion",
+      "Behaviour": "base",
+      "Level": 2,
+      "Point": 1,
+      "Health": 16,
+      "Defence": 0,
+      "Attack": 4,
+      "Exp": 8,
+      "RecruitmentChance": 0,
+      "Actions": [
+        "physics/attack"
+      ],
+      "Stats": {
+        "str": 4,
+        "vit": 3,
+        "agi": 6
+      },
+      "Loot": [
+        {
+          "ItemId": "money/coin",
+          "MinCount": 2,
+          "MaxCount": 5,
+          "Probability": 100
+        },
+        {
+          "ItemId": "rpg_demo/stones",
+          "MinCount": 1,
+          "MaxCount": 2,
+          "Probability": 100
+        }
+      ]
+    },
+    {
+      "Id": "rpg_desert_beetle",
+      "Name": "rpg_plus/desert/enemy/beetle/name",
+      "Image": "characters/desert/beetle",
+      "Behaviour": "base",
+      "Level": 1,
+      "Point": 1,
+      "Health": 12,
+      "Defence": 1,
+      "Attack": 3,
+      "Exp": 5,
+      "RecruitmentChance": 0,
+      "Actions": [
+        "physics/attack"
+      ],
+      "Stats": {
+        "str": 3,
+        "vit": 3,
+        "agi": 3
+      },
+      "Loot": [
+        {
+          "ItemId": "money/coin",
+          "MinCount": 2,
+          "MaxCount": 5,
+          "Probability": 100
+        },
+        {
+          "ItemId": "rpg_plus/resin",
+          "MinCount": 1,
+          "MaxCount": 2,
+          "Probability": 100
+        }
+      ]
+    }
+  ]
+}

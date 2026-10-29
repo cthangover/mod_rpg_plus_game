@@ -419,9 +419,9 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     nightPhase++;
                     return false;
                 case 1:
-                    var material = View.GetNodeOrNull<TileMapLayer>("Main")?.Material as ShaderMaterial;
+                    var material = View.Presentation?.SharedMaterial;
                     Check(material != null, "the tiles have the map's light material");
-                    Check(material != null && View.Player.Material == material, "the player shares it");
+                    Check(material != null && View.Presentation.ActorsShareMaterial, "the player shares it");
                     var weights = material?.GetShaderParameter("time_weights").AsVector4() ?? Vector4.Zero;
                     Check(Mathf.IsEqualApprox(weights.W, 1f), "23:00 lights the map as night");
                     Check((material?.GetShaderParameter("light_count").AsInt32() ?? 0) >= 4, "the player, the lamp and windows give light");
