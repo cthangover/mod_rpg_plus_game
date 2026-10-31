@@ -1,0 +1,401 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_winter/log_hut_snowy_1",
+      "Object": "village_pack/building/log_hut_snowy",
+      "X": 4,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_winter/spruce_snowy_1",
+      "Object": "village_pack/vegetation/spruce_snowy",
+      "X": 13,
+      "Y": 1
+    },
+    {
+      "Id": "rpg_winter/well_snowy_1",
+      "Object": "village_pack/decor/well_snowy",
+      "X": 12,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_winter/hand_cart_1",
+      "Object": "village_pack/decor/hand_cart",
+      "X": 4,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_winter/rocks_snowy_1",
+      "Object": "village_pack/terrain/rocks_snowy",
+      "X": 25,
+      "Y": 17
+    },
+    {
+      "Id": "rpg_winter/shrub_frosted_1",
+      "Object": "village_pack/vegetation/shrub_frosted",
+      "X": 30,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_winter/dead_tree_snowy_1",
+      "Object": "village_pack/vegetation/dead_tree_snowy",
+      "X": 2,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_winter/ice_crystal_1",
+      "Object": "village_pack/terrain/ice_crystal",
+      "X": 23,
+      "Y": 24
+    },
+    {
+      "Id": "rpg_winter/firewood_stack_1",
+      "Object": "village_pack/decor/firewood_stack",
+      "X": 11,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_winter/snowdrift_1",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 51,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_winter/snowdrift_2",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 20,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_winter/snowdrift_3",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 51,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_winter/snowdrift_4",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 19,
+      "Y": 25
+    },
+    {
+      "Id": "rpg_winter/snowdrift_5",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 57,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_winter/snowdrift_6",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 15,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/snowdrift_7",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 33,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/snowdrift_8",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 51,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/snowdrift_9",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 9,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/snowdrift_10",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 27,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/snowdrift_11",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 45,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/snowdrift_12",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 63,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/snowdrift_13",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 3,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/snowdrift_14",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 21,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/snowdrift_15",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 39,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/snowdrift_16",
+      "Object": "village_pack/terrain/snowdrift",
+      "X": 57,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/street_lamp_snowy_1",
+      "Object": "village_pack/light/street_lamp_snowy",
+      "X": 21,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_winter/signpost_snowy_1",
+      "Object": "village_pack/decor/signpost_snowy",
+      "X": 34,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_winter/barrel_snowy_1",
+      "Object": "village_pack/decor/barrel_snowy",
+      "X": 28,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_winter/oak_1",
+      "Object": "village_pack/vegetation/oak",
+      "X": 24,
+      "Y": 1
+    },
+    {
+      "Id": "rpg_winter/spruce_1",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 30,
+      "Y": 1
+    },
+    {
+      "Id": "rpg_winter/spruce_2",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 51,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_winter/spruce_3",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 3,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/spruce_4",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 21,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/spruce_5",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 39,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/spruce_6",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 15,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/spruce_7",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 33,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/spruce_8",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 51,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/spruce_9",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 9,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/spruce_10",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 27,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/spruce_11",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 45,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/spruce_12",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 63,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/birch_1",
+      "Object": "village_pack/vegetation/birch",
+      "X": 35,
+      "Y": 1
+    },
+    {
+      "Id": "rpg_winter/willow_1",
+      "Object": "village_pack/vegetation/willow",
+      "X": 17,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_winter/maple_1",
+      "Object": "village_pack/vegetation/maple",
+      "X": 22,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_winter/pine_1",
+      "Object": "village_pack/vegetation/pine",
+      "X": 32,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_winter/pine_2",
+      "Object": "village_pack/vegetation/pine",
+      "X": 9,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/pine_3",
+      "Object": "village_pack/vegetation/pine",
+      "X": 27,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/pine_4",
+      "Object": "village_pack/vegetation/pine",
+      "X": 45,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_winter/pine_5",
+      "Object": "village_pack/vegetation/pine",
+      "X": 3,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/pine_6",
+      "Object": "village_pack/vegetation/pine",
+      "X": 21,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/pine_7",
+      "Object": "village_pack/vegetation/pine",
+      "X": 39,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/pine_8",
+      "Object": "village_pack/vegetation/pine",
+      "X": 57,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_winter/pine_9",
+      "Object": "village_pack/vegetation/pine",
+      "X": 15,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/pine_10",
+      "Object": "village_pack/vegetation/pine",
+      "X": 33,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/pine_11",
+      "Object": "village_pack/vegetation/pine",
+      "X": 51,
+      "Y": 43
+    },
+    {
+      "Id": "rpg_winter/stump_cut_1",
+      "Object": "village_pack/vegetation/stump_cut",
+      "X": 2,
+      "Y": 24
+    },
+    {
+      "Id": "rpg_winter/stump_hollow_1",
+      "Object": "village_pack/vegetation/stump_hollow",
+      "X": 6,
+      "Y": 24
+    },
+    {
+      "Id": "rpg_winter/shrub_round_1",
+      "Object": "village_pack/vegetation/shrub_round",
+      "X": 30,
+      "Y": 22
+    },
+    {
+      "Id": "rpg_winter/shrub_berry_1",
+      "Object": "village_pack/vegetation/shrub_berry",
+      "X": 33,
+      "Y": 22
+    },
+    {
+      "Id": "rpg_winter/flowers_daisy_1",
+      "Object": "village_pack/vegetation/flowers_daisy",
+      "X": 35,
+      "Y": 24
+    },
+    {
+      "Id": "rpg_winter/flowers_violet_1",
+      "Object": "village_pack/vegetation/flowers_violet",
+      "X": 29,
+      "Y": 25
+    },
+    {
+      "Id": "rpg_winter/snow_cabin_1",
+      "Object": "village_pack/building/snow_cabin",
+      "X": 45,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_winter/snow_lodge_1",
+      "Object": "village_pack/building/snow_lodge",
+      "X": 57,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_winter/log_pile_1",
+      "Object": "village_pack/decor/log_pile",
+      "X": 61,
+      "Y": 31
+    },
+    {
+      "Id": "rpg_winter/sled_1",
+      "Object": "village_pack/decor/sled",
+      "X": 46,
+      "Y": 20
+    },
+    {
+      "Id": "rpg_winter/lantern_post_snowy_1",
+      "Object": "village_pack/light/lantern_post_snowy",
+      "X": 58,
+      "Y": 20
+    }
+  ]
+}

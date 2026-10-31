@@ -1,0 +1,23 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_elder_house/supply_rpg_elder_house_1_2",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 1,
+      "Y": 2
+    },
+    {
+      "Id": "rpg_elder_house/supply_rpg_elder_house_2_2",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 2,
+      "Y": 2
+    },
+    {
+      "Id": "rpg_elder_house/supply_rpg_elder_house_10_2",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 10,
+      "Y": 2
+    }
+  ]
+}

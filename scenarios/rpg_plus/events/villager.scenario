@@ -1,0 +1,12 @@
+text "— Говорят, в лесу слизни. Мелкие, а обидно, когда в сапог заползают." key=rpg_plus/villager/line1
+select ""
+option "Пойдёшь с нами в лес?" key=rpg_plus/villager/ask -> :join
+option "Нет, справлюсь сам." key=rpg_plus/villager/alone -> :bye
+:join
+flag rpg_companion_joined 1
+action party.add id=rpg_companion
+text "— Лесник из меня никакой, зато сапоги крепкие. Веди." key=rpg_plus/villager/join
+end
+:bye
+text "— Тогда пусть слизни тебя подождут." key=rpg_plus/villager/bye
+end

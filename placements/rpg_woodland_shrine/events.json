@@ -1,0 +1,58 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_woodland_shrine/shrine_exit",
+      "Object": "village_pack/marker/trigger",
+      "X": 1,
+      "Y": 11,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_forest",
+          "X": 25,
+          "Y": 8,
+          "Dir": "Left"
+        }
+      }
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrine_beacon",
+      "Object": "village_pack/light/ward_lantern",
+      "X": 12,
+      "Y": 5,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/beacon"
+      },
+      "Light": {
+        "Radius": 2,
+        "Color": "#699baf"
+      },
+      "States": [
+        {
+          "Id": "pact",
+          "When": "rpg_ward_done == 1 && rpg_ward_choice == 'pact'",
+          "Light": {
+            "Radius": 6,
+            "Color": "#f0cd8d"
+          }
+        },
+        {
+          "Id": "free",
+          "When": "rpg_ward_done == 1 && rpg_ward_choice == 'free'",
+          "Parts": [
+            {
+              "Image": "decor/living_roots",
+              "Geometry": "upright"
+            }
+          ],
+          "Light": {
+            "Radius": 6,
+            "Color": "#9ce3c7"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_village/woodland_herbalist",
+      "Object": "village_pack/npc/villager",
+      "X": 3,
+      "Y": 12,
+      "Facing": "Right",
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/herbalist"
+      }
+    },
+    {
+      "Id": "rpg_village/woodland_workbench",
+      "Object": "village_pack/furniture/workbench",
+      "X": 18,
+      "Y": 10,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/workbench"
+      }
+    },
+    {
+      "Id": "rpg_village/woodland_hearth",
+      "Object": "village_pack/light/hearth",
+      "X": 13,
+      "Y": 12,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/hearth"
+      },
+      "Light": {
+        "Radius": 3,
+        "Color": "#ffc37a"
+      }
+    },
+    {
+      "Id": "rpg_village/woodland_beacon",
+      "Object": "village_pack/light/ward_lantern",
+      "X": 15,
+      "Y": 7,
+      "Light": {
+        "Radius": 2,
+        "Color": "#88d5c0"
+      },
+      "States": [
+        {
+          "Id": "hidden",
+          "When": "!(rpg_ward_done == 1 && rpg_ward_choice == 'pact')",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_village/woodland_lamplighter",
+      "Object": "village_pack/npc/elder",
+      "X": 24,
+      "Y": 10,
+      "Facing": "Left",
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/lamplighter"
+      },
+      "Route": {
+        "Steps": [
+          "left",
+          "wait",
+          "left",
+          "face_up",
+          "wait",
+          "right",
+          "right",
+          "face_down",
+          "wait"
+        ],
+        "Every": 1.1,
+        "Repeat": true
+      }
+    }
+  ]
+}

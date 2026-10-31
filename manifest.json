@@ -6,7 +6,6 @@
   "description": "A complete small RPG: a prologue that picks the class, a village and forest mystery, crafting, trade, a desert and turn-based battles — data and scenarios only.",
   "category": "story",
   "depends": [
-    "rpg_demo_game>=1",
     "classic_rpg_pack>=1",
     "stat_checks>=1",
     "equipment>=1",
@@ -17,7 +16,10 @@
     "characters_base>=1",
     "items_base>=1",
     "crafting>=1",
-    "quests_base>=1"
+    "quests_base>=1",
+    "village_pack>=1",
+    "turn_battle_base>=1",
+    "music_pack>=1"
   ],
   "test_suites": [
     {
@@ -36,6 +38,12 @@
       "id": "desert",
       "activate": [
         "--itest=desert"
+      ]
+    },
+    {
+      "id": "winter",
+      "activate": [
+        "--itest=winter"
       ]
     }
   ]

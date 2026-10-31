@@ -1,0 +1,45 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_village/supply_rpg_village_19_11",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 19,
+      "Y": 11
+    },
+    {
+      "Id": "rpg_village/supply_rpg_village_20_11",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 18,
+      "Y": 11
+    },
+    {
+      "Id": "rpg_village/supply_rpg_village_4_7",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 4,
+      "Y": 7,
+      "Interact": {
+        "Commands": [
+          "flag self.open 1",
+          "action item.add id=money/coin count=2",
+          "action item.add id=rpg_plus/resin count=1",
+          "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 смола.\" key=rpg_plus/barrel/found_2_coins_resin"
+        ]
+      }
+    },
+    {
+      "Id": "rpg_village/supply_rpg_village_22_11",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 19,
+      "Y": 10,
+      "Interact": {
+        "Commands": [
+          "flag self.open 1",
+          "action item.add id=money/coin count=2",
+          "action item.add id=rpg_plus/resin count=1",
+          "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 смола.\" key=rpg_plus/barrel/found_2_coins_resin"
+        ]
+      }
+    }
+  ]
+}

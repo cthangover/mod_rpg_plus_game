@@ -1,0 +1,47 @@
+{
+  "Kind": "rpg_object",
+  "Items": [
+    {
+      "Id": "rpg_plus/enemy/desert_scorpion",
+      "Form": "actor",
+      "Category": "enemy",
+      "Extends": "village_pack/creature/scorpion",
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "ptext \"Скорпион поднимает хвост. Переговоры будут короткими.\" key=rpg_plus/desert/enemy/scorpion",
+          "action rpg.battle enemies=rpg_desert_scorpion win_flag=self.won",
+          "end"
+        ]
+      },
+      "States": [
+        {
+          "Id": "won",
+          "When": "self.won == 1",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_plus/enemy/desert_beetle",
+      "Form": "actor",
+      "Category": "enemy",
+      "Extends": "village_pack/creature/beetle",
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "ptext \"Жук скребёт песок. За проход он берёт мясом.\" key=rpg_plus/desert/enemy/beetle",
+          "action rpg.battle enemies=rpg_desert_beetle win_flag=self.won",
+          "end"
+        ]
+      },
+      "States": [
+        {
+          "Id": "won",
+          "When": "self.won == 1",
+          "Hidden": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_village/rpg_plus_trainer",
+      "Object": "rpg_plus/npc/trainer",
+      "X": 27,
+      "Y": 10,
+      "Facing": "Left",
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/events/trainer"
+      }
+    },
+    {
+      "Id": "rpg_village/rpg_plus_seer",
+      "Object": "rpg_plus/npc/seer",
+      "X": 4,
+      "Y": 11,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/events/seer"
+      }
+    },
+    {
+      "Id": "rpg_village/rpg_plus_chest",
+      "Object": "village_pack/chest",
+      "X": 29,
+      "Y": 3,
+      "Interact": {
+        "Commands": [
+          "ptext \"Сундук не заперт. Хозяин либо доверчив, либо хранит в нём только надежды.\" key=rpg_plus/chest/closed",
+          "action item.add id=money/coin count=10",
+          "ptext \"Десять монет. Хозяин был доверчив. Был.\" key=rpg_plus/chest/coins",
+          "flag self.open 1"
+        ]
+      },
+      "States$add": [
+        {
+          "Id": "open",
+          "Interact": {
+            "Commands": [
+              "ptext \"Пусто. Доверие кончилось вместе с монетами.\" key=rpg_plus/chest/empty"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": "rpg_village/rpg_plus_pet_slime",
+      "Object": "village_pack/creature/slime",
+      "X": 6,
+      "Y": 15,
+      "Facing": "Left",
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "ptext \"Ручной слизень. Его кормят с руки. Руки пока целы.\" key=rpg_plus/slime/pet"
+        ]
+      },
+      "Route": {
+        "Steps": [
+          "left",
+          "wait",
+          "right",
+          "right",
+          "wait",
+          "left"
+        ],
+        "Every": 0.9
+      }
+    }
+  ]
+}

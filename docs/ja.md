@@ -18,6 +18,12 @@ RPG Plus は完成された小規模 RPG です。まず自分のヒーローの
 
 村のその他の人々:**師匠**は稽古場へ連れて行ってくれ(経験値は一度、丸太を持ち上げる力の判定つき)、**占い師**はあなたの運を読みます。井戸のそばの囲み炉は体力とマナを回復します。報酬は二度は受け取れません。
 
+![村](assets/village.jpg)
+
+![灰色の森](assets/forest.jpg)
+
+![村の商人](assets/shop.jpg)
+
 ![井戸の作業台と三つのレシピ:森の軟膏、森の番人のマント、護りの灯籠。持っている材料と必要な材料、そして作成ボタン。](assets/workbench.jpg)
 
 ![森の荒れた祠、「森は覚えている」、灯籠を捧げ持つヒーロー。](assets/shrine.jpg)
@@ -43,8 +49,7 @@ RPG Plus は完成された小規模 RPG です。まず自分のヒーローの
 RPG Plus の正体はコレクション **RPG Plus** です。そのブロック:
 
 ```text
-物語                 rpg_plus_game(この MOD)
-村と森               rpg_demo_game:このゲームが拡張するマップ、人、アイテム
+物語と世界    rpg_plus_game
 素材とルール         village_pack(アート)、classic_rpg_pack(ステータス、クラス、装備)
 ステータスと判定     stats_base, stat_checks
 タイル世界           rpg
@@ -64,18 +69,18 @@ RPG Plus の正体はコレクション **RPG Plus** です。そのブロック
 
 ```filestree
 rpg_plus_game/
-├── scenarios/rpg_plus/     プロローグ、training_yard、events/(師匠、占い師)、woodland/、desert/
-├── map_events/<map>/       新しい人々、作業台、洞窟の扉、樽。同じ id は rpg_demo_game のものを置き換える
-├── maps/                   rpg_woodland_shrine.json、rpg_desert.json
-├── scenes/                 岐路、稽古場、祠、砂漠
-├── quests/woodland.json    ジャーナルの段階
-├── items/, recipes/, stations/   素材、作成品、作業台のメニュー
-├── patches/character.json  rpg_demo_game のモンスターに追加されたドロップ
-├── patches/shop.json       村の商人の商品の追加
-└── characters/, charsets/, backgrounds/, locale/
+├── maps/                       village, house, forest, shrine, desert
+├── scenes/                     tile maps, crossroads, training yard
+├── placements/<map>/           NPCs, doors, pickups, barrels
+├── scenarios/rpg_plus/         village intro, map interactions, prologue, training, woodland, desert
+├── characters/                 hero, monsters, stats and loot
+├── shops/village_merchant.json
+├── items/, recipes/, stations/
+├── quests/woodland.json
+└── charsets/, backgrounds/, locale/
 ```
 
-**コピーせず、他の MOD を拡張する。** 村も家も森も今も `rpg_demo_game` から来ます。そこと同じ id のイベントはそれを置き換え(村長は新しい会話を得る)、新しい id は人を増やします。パッチはモンスターのドロップと店の商品を足します。
+マップ、イベント、キャラクター、アイテム、店、物語はすべて `rpg_plus_game` にあります。モンスターの能力値とドロップは `characters/rpg_plus_characters.json`、商人は `shops/village_merchant.json` で直接編集します。セーブ互換性のため `rpg_plus/` のリソースキーは維持しますが、別の MOD ではありません。
 
 **シナリオの判定と条件。** 占い師は幸運を試し、それからあなたの装備を見ます:
 
@@ -96,10 +101,9 @@ end
 ```json
 {
   "Id": "rpg_plus/salve",
-  "Name": "rpg_plus/recipe/salve/name",
   "Type": "Cooking",
   "Input": [
-    { "Id": "rpg_demo/mushroom", "Count": 1 },
+    { "Id": "rpg_plus/mushroom", "Count": 1 },
     { "Id": "rpg_plus/resin", "Count": 1 }
   ],
   "Output": [{ "Id": "rpg_plus/salve", "Count": 1 }]

@@ -1,0 +1,317 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_desert/adobe_house_1",
+      "Object": "village_pack/building/adobe_house",
+      "X": 7,
+      "Y": 4
+    },
+    {
+      "Id": "rpg_desert/caravan_tent_1",
+      "Object": "village_pack/building/caravan_tent",
+      "X": 19,
+      "Y": 4
+    },
+    {
+      "Id": "rpg_desert/ruined_tower_1",
+      "Object": "village_pack/building/ruined_tower",
+      "X": 5,
+      "Y": 16
+    },
+    {
+      "Id": "rpg_desert/palm_1",
+      "Object": "village_pack/vegetation/palm",
+      "X": 29,
+      "Y": 2
+    },
+    {
+      "Id": "rpg_desert/palm_2",
+      "Object": "village_pack/vegetation/palm",
+      "X": 15,
+      "Y": 17
+    },
+    {
+      "Id": "rpg_desert/palm_3",
+      "Object": "village_pack/vegetation/palm",
+      "X": 32,
+      "Y": 17
+    },
+    {
+      "Id": "rpg_desert/palm_4",
+      "Object": "village_pack/vegetation/palm",
+      "X": 9,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_desert/palm_5",
+      "Object": "village_pack/vegetation/palm",
+      "X": 27,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_desert/palm_6",
+      "Object": "village_pack/vegetation/palm",
+      "X": 3,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/palm_7",
+      "Object": "village_pack/vegetation/palm",
+      "X": 21,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/palm_8",
+      "Object": "village_pack/vegetation/palm",
+      "X": 39,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/palm_9",
+      "Object": "village_pack/vegetation/palm",
+      "X": 15,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/palm_10",
+      "Object": "village_pack/vegetation/palm",
+      "X": 33,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/palm_11",
+      "Object": "village_pack/vegetation/palm",
+      "X": 51,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/cactus_1",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 2,
+      "Y": 2
+    },
+    {
+      "Id": "rpg_desert/cactus_2",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 14,
+      "Y": 2
+    },
+    {
+      "Id": "rpg_desert/cactus_3",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 32,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_desert/cactus_4",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 24,
+      "Y": 17
+    },
+    {
+      "Id": "rpg_desert/cactus_5",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 57,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_desert/cactus_6",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 15,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_desert/cactus_7",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 33,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_desert/cactus_8",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 9,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/cactus_9",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 27,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/cactus_10",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 45,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/cactus_11",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 63,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/cactus_12",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 3,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/cactus_13",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 21,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/cactus_14",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 39,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/cactus_15",
+      "Object": "village_pack/vegetation/cactus",
+      "X": 57,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_1",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 36,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_2",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 51,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_3",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 3,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_4",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 10,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_5",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 19,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_6",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 36,
+      "Y": 19
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_7",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 2,
+      "Y": 20
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_8",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 28,
+      "Y": 20
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_9",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 3,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_10",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 21,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_11",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 39,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_12",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 15,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_13",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 33,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_14",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 51,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_15",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 9,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_16",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 27,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_17",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 45,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/desert_scrub_18",
+      "Object": "village_pack/vegetation/desert_scrub",
+      "X": 63,
+      "Y": 38
+    },
+    {
+      "Id": "rpg_desert/desert_house_1",
+      "Object": "village_pack/building/desert_house",
+      "X": 45,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_desert/desert_inn_1",
+      "Object": "village_pack/building/desert_inn",
+      "X": 57,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_desert/market_stall_1",
+      "Object": "village_pack/decor/market_stall",
+      "X": 55,
+      "Y": 30
+    },
+    {
+      "Id": "rpg_desert/cistern_1",
+      "Object": "village_pack/decor/cistern",
+      "X": 46,
+      "Y": 20
+    },
+    {
+      "Id": "rpg_desert/pottery_1",
+      "Object": "village_pack/decor/pottery",
+      "X": 59,
+      "Y": 20
+    }
+  ]
+}

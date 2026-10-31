@@ -1,0 +1,2 @@
+ptext "Пара гладких камней. Бесполезных, а значит — на продажу." key=rpg_plus/pickup/stones
+action item.add id=rpg_plus/stones count=2

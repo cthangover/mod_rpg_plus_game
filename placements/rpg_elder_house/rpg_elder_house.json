@@ -1,0 +1,11 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_elder_house/cottage_room_1",
+      "Object": "village_pack/interior/cottage_room",
+      "X": 0,
+      "Y": 0
+    }
+  ]
+}

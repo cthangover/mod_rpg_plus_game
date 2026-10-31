@@ -18,6 +18,12 @@ Se juega desde **Jugar → RPG Plus → Nueva partida**.
 
 Otra gente de la aldea: el **instructor** te lleva al patio de entrenamiento (experiencia una vez, y una prueba de Fuerza para alzar un tronco), y la **adivina** lee tu suerte. El hogar junto al pozo restaura salud y maná. Las recompensas no se pueden cobrar dos veces.
 
+![Aldea](assets/village.jpg)
+
+![Bosque Gris](assets/forest.jpg)
+
+![Mercader de la aldea](assets/shop.jpg)
+
 ![La mesa de trabajo del pozo con tres recetas: Pomada del bosque, Manto del guardián y Farol guardián, los ingredientes que tienes y necesitas, y el botón de crear.](assets/workbench.jpg)
 
 ![El santuario en ruinas del bosque, "El bosque recuerda", el héroe cargando el farol.](assets/shrine.jpg)
@@ -43,8 +49,7 @@ Los combates usan el estilo de órdenes (FF) con daño calculado por fórmulas. 
 RPG Plus es la colección **RPG Plus**. Sus bloques:
 
 ```text
-Historia             rpg_plus_game (este mod)
-Aldea y bosque       rpg_demo_game: los mapas, la gente y los objetos que este juego amplía
+Historia y mundo    rpg_plus_game
 Recursos y reglas    village_pack (arte), classic_rpg_pack (atributos, clases, equipo)
 Atributos y pruebas  stats_base, stat_checks
 Mundo de tiles       rpg
@@ -64,18 +69,18 @@ Ajustes de la colección: `battle.core` es `ff_battle`, las pruebas tiran `d20`,
 
 ```filestree
 rpg_plus_game/
-├── scenarios/rpg_plus/     prólogo, training_yard, events/ (instructor, adivina), woodland/, desert/
-├── map_events/<map>/       gente nueva, la mesa de trabajo, la puerta de la cueva, barriles; los mismos id sustituyen a los de rpg_demo_game
-├── maps/                   rpg_woodland_shrine.json, rpg_desert.json
-├── scenes/                 cruce de caminos, patio de entrenamiento, santuario, desierto
-├── quests/woodland.json    etapas del diario
-├── items/, recipes/, stations/   materiales, objetos fabricados, el menú de la mesa de trabajo
-├── patches/character.json  botín añadido a los monstruos de rpg_demo_game
-├── patches/shop.json       más mercancías para el mercader de la aldea
-└── characters/, charsets/, backgrounds/, locale/
+├── maps/                       village, house, forest, shrine, desert
+├── scenes/                     tile maps, crossroads, training yard
+├── placements/<map>/           NPCs, doors, pickups, barrels
+├── scenarios/rpg_plus/         village intro, map interactions, prologue, training, woodland, desert
+├── characters/                 hero, monsters, stats and loot
+├── shops/village_merchant.json
+├── items/, recipes/, stations/
+├── quests/woodland.json
+└── charsets/, backgrounds/, locale/
 ```
 
-**Amplía el mod de otro en vez de copiarlo.** La aldea, la casa y el bosque siguen viniendo de `rpg_demo_game`. Un evento con el mismo id que uno de allí lo sustituye (el anciano recibe diálogos nuevos); los id nuevos añaden gente. Los parches añaden botín a sus monstruos y mercancías a su tienda.
+Todo el contenido del juego está en `rpg_plus_game`: mapas, eventos, personajes, objetos, tiendas e historias. Las estadísticas y el botín están en `characters/rpg_plus_characters.json`; el mercader, en `shops/village_merchant.json`. Las claves `rpg_plus/` se conservan para las partidas guardadas; ya no son un mod separado.
 
 **Pruebas y condiciones en los escenarios.** La adivina prueba la Suerte y luego mira tu equipo:
 
@@ -96,10 +101,9 @@ end
 ```json
 {
   "Id": "rpg_plus/salve",
-  "Name": "rpg_plus/recipe/salve/name",
   "Type": "Cooking",
   "Input": [
-    { "Id": "rpg_demo/mushroom", "Count": 1 },
+    { "Id": "rpg_plus/mushroom", "Count": 1 },
     { "Id": "rpg_plus/resin", "Count": 1 }
   ],
   "Output": [{ "Id": "rpg_plus/salve", "Count": 1 }]

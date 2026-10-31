@@ -1,0 +1,92 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_forest/woodland_lost_amber",
+      "Object": "rpg_plus/pickup/amber",
+      "X": 25,
+      "Y": 8,
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "ptext \"Сердце янтаря осталось у пещеры. На этот раз забираешь его с собой.\" key=rpg_plus/woodland/amber/recovered",
+          "action item.add id=rpg_plus/amber count=1",
+          "end"
+        ]
+      },
+      "States": [
+        {
+          "Id": "hidden",
+          "When": "!(rpg_wolf_dead == 1 && item('rpg_plus/amber') == 0 && item('rpg_plus/ward_lantern') == 0 && rpg_ward_done != 1)",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_forest/woodland_courier",
+      "Object": "village_pack/npc/merchant",
+      "X": 5,
+      "Y": 13,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/courier"
+      },
+      "States": [
+        {
+          "Id": "paid",
+          "When": "rpg_courier_paid == 1",
+          "Solid": false,
+          "Route": {
+            "Steps": [
+              "up",
+              "up",
+              "up",
+              "up",
+              "up",
+              "left",
+              "left",
+              "left",
+              "left",
+              "wait"
+            ],
+            "Every": 0.8,
+            "Repeat": false
+          }
+        }
+      ]
+    },
+    {
+      "Id": "rpg_forest/woodland_waystone",
+      "Object": "village_pack/decor/waystone",
+      "X": 20,
+      "Y": 9,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/waystone"
+      }
+    },
+    {
+      "Id": "rpg_forest/woodland_to_shrine",
+      "Object": "village_pack/marker/trigger",
+      "X": 26,
+      "Y": 8,
+      "Solid": true,
+      "Interact": {
+        "Trigger": "Use",
+        "Teleport": {
+          "Map": "rpg_woodland_shrine",
+          "X": 2,
+          "Y": 11,
+          "Dir": "Right"
+        }
+      },
+      "States": [
+        {
+          "Id": "hidden",
+          "When": "rpg_wolf_dead != 1",
+          "Hidden": true
+        }
+      ]
+    }
+  ]
+}

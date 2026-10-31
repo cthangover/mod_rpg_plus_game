@@ -1,0 +1,77 @@
+{
+  "Kind": "shop",
+  "Items": [
+    {
+      "Id": "rpg_plus/village_merchant",
+      "Name": "rpg_plus/shop/village_merchant",
+      "Sells": [
+        {
+          "Item": "rpg_plus/elixir",
+          "Price": 10
+        },
+        {
+          "Item": "classic/iron_sword",
+          "Price": 30
+        },
+        {
+          "Item": "classic/dagger",
+          "Price": 18
+        },
+        {
+          "Item": "classic/oak_staff",
+          "Price": 24
+        },
+        {
+          "Item": "classic/leather_armor",
+          "Price": 20
+        },
+        {
+          "Item": "classic/robe",
+          "Price": 16
+        },
+        {
+          "Item": "classic/silver_ring",
+          "Price": 22
+        },
+        {
+          "Item": "classic/strength_tonic",
+          "Price": 40
+        },
+        {
+          "Item": "rpg_plus/resin",
+          "Price": 4
+        },
+        {
+          "Item": "rpg_plus/mushroom",
+          "Price": 3
+        },
+        {
+          "Item": "rpg_plus/branches",
+          "Price": 2
+        }
+      ],
+      "Buys": [
+        {
+          "Item": "rpg_plus/branches",
+          "Price": 1
+        },
+        {
+          "Item": "rpg_plus/stones",
+          "Price": 2
+        },
+        {
+          "Item": "rpg_plus/resin",
+          "Price": 2
+        },
+        {
+          "Item": "rpg_plus/wolf_pelt",
+          "Price": 4
+        },
+        {
+          "Item": "rpg_plus/salve",
+          "Price": 5
+        }
+      ]
+    }
+  ]
+}

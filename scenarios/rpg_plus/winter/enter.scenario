@@ -1,0 +1,8 @@
+scene: rpg_winter
+priority: 10
+is_one_run: true
+save_allowed: true
+---
+title "Белый перевал" key=rpg_plus/winter/enter/title
+ptext "Указатель обещал короткую дорогу. Про обморожение он промолчал." key=rpg_plus/winter/enter/line
+end

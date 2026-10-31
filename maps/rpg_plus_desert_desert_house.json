@@ -1,0 +1,31 @@
+{
+  "Kind": "rpg_map",
+  "Items": [
+    {
+      "Id": "rpg_plus_desert_desert_house",
+      "Name": "village_pack/place/desert_home_room",
+      "Width": 12,
+      "Height": 10,
+      "Zoom": 2,
+      "Spawn": {
+        "X": 5,
+        "Y": 8,
+        "Dir": "Up"
+      },
+      "Ambient": "#d7c6ad",
+      "Legend": {},
+      "Collision": [
+        "############",
+        "############",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#####oo#####"
+      ]
+    }
+  ]
+}

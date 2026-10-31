@@ -20,7 +20,7 @@ elder's house. Two more supply barrels are beside village buildings and
 three are in the desert. Every barrel has independent closed/open pages,
 its own saved flag, a distinct open sprite, and one-time small rewards.
 Reopening only displays the empty message. Existing chests are unchanged.
-Barrel definitions: `map_events/<map>/barrels.json` and desert `events.json`.
+Barrel placements: `placements/<map>/barrels.json` and desert `events.json` (rpg_placement, model v2).
 
 ## Art choices
 

@@ -1,0 +1,19 @@
+{
+  "Kind": "rpg_map",
+  "Items": [
+    {
+      "Id": "rpg_elder_house",
+      "Name": "rpg_plus/map/elder_house",
+      "Width": 12,
+      "Height": 10,
+      "Zoom": 2,
+      "Spawn": {
+        "X": 6,
+        "Y": 8,
+        "Dir": "Up"
+      },
+      "Ambient": "#e0d2b8",
+      "Legend": {}
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "Kind": "atmosphere",
+  "Items": [
+    {
+      "Id": "winter_test/custom",
+      "Emitters": [
+        {
+          "Type": "winter_test/marker",
+          "Count": 1,
+          "Marker": 42
+        }
+      ]
+    }
+  ]
+}

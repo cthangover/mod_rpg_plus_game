@@ -1,0 +1,20 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_village/village_to_desert",
+      "Object": "village_pack/marker/trigger",
+      "X": 0,
+      "Y": 9,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_desert",
+          "X": 38,
+          "Y": 12,
+          "Dir": "Left"
+        }
+      }
+    }
+  ]
+}

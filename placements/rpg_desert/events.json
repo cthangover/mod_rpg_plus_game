@@ -1,0 +1,110 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_desert/desert_to_village",
+      "Object": "village_pack/marker/trigger",
+      "X": 39,
+      "Y": 12,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_village",
+          "X": 1,
+          "Y": 9,
+          "Dir": "Right"
+        }
+      }
+    },
+    {
+      "Id": "rpg_desert/desert_barrel_supply",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 17,
+      "Y": 8,
+      "Interact": {
+        "Commands": [
+          "flag self.open 1",
+          "action item.add id=money/coin count=3",
+          "action item.add id=rpg_plus/elixir count=1",
+          "ptext \"В бочке нашлась мелочь: 3 монет(ы), 1 эликсир.\" key=rpg_plus/barrel/found_3_coins_elixir"
+        ]
+      }
+    },
+    {
+      "Id": "rpg_desert/desert_barrel_caravan",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 25,
+      "Y": 8,
+      "Interact": {
+        "Commands": [
+          "flag self.open 1",
+          "action item.add id=money/coin count=4",
+          "action item.add id=rpg_plus/resin count=1",
+          "ptext \"В бочке нашлась мелочь: 4 монет(ы), 1 смола.\" key=rpg_plus/barrel/found_4_coins_resin"
+        ]
+      }
+    },
+    {
+      "Id": "rpg_desert/desert_barrel_ruins",
+      "Object": "rpg_plus/container/loot_barrel",
+      "X": 10,
+      "Y": 20
+    },
+    {
+      "Id": "rpg_desert/desert_house_door",
+      "Object": "village_pack/marker/trigger",
+      "X": 8,
+      "Y": 8,
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "ptext \"На двери записка: «Вернусь, когда станет прохладно». Чернила выцвели.\" key=rpg_plus/desert/house"
+        ]
+      }
+    },
+    {
+      "Id": "rpg_desert/desert_caravan_notice",
+      "Object": "village_pack/marker/trigger",
+      "X": 21,
+      "Y": 8,
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "ptext \"Караван ушёл. Цены остались. Дешевле от этого не стало.\" key=rpg_plus/desert/caravan"
+        ]
+      }
+    },
+    {
+      "Id": "rpg_desert/desert_scorpion_1",
+      "Object": "rpg_plus/enemy/desert_scorpion",
+      "X": 27,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_desert/desert_beetle_2",
+      "Object": "rpg_plus/enemy/desert_beetle",
+      "X": 22,
+      "Y": 13,
+      "Facing": "Left"
+    },
+    {
+      "Id": "rpg_desert/desert_scorpion_3",
+      "Object": "rpg_plus/enemy/desert_scorpion",
+      "X": 13,
+      "Y": 14
+    },
+    {
+      "Id": "rpg_desert/desert_beetle_4",
+      "Object": "rpg_plus/enemy/desert_beetle",
+      "X": 11,
+      "Y": 10,
+      "Facing": "Left"
+    },
+    {
+      "Id": "rpg_desert/desert_beetle_5",
+      "Object": "rpg_plus/enemy/desert_beetle",
+      "X": 28,
+      "Y": 19
+    }
+  ]
+}
