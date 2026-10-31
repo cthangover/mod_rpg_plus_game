@@ -18,6 +18,12 @@ RPG Plus 是一款完整的小型 RPG：先是一段视觉小说序章，让你�
 
 村里还有别人：**教头**会带你去练武场（经验只有一次，还有一次举起原木的力量检定），**占卜师**为你解读运气。井边的炉火恢复生命和法力。奖励不能重复领取。
 
+![村庄](assets/village.jpg)
+
+![灰森林](assets/forest.jpg)
+
+![村庄商人](assets/shop.jpg)
+
 ![井边工作台和三个配方：林间药膏、守林人斗篷和守护提灯，标注了你已有和所需的材料，以及“制作”按钮。](assets/workbench.jpg)
 
 ![森林中荒废的圣祠，“森林记得”，英雄提着提灯。](assets/shrine.jpg)
@@ -43,8 +49,7 @@ RPG Plus 是一款完整的小型 RPG：先是一段视觉小说序章，让你�
 RPG Plus 就是合集 **RPG Plus**。它的分组：
 
 ```text
-剧情                 rpg_plus_game（本模组）
-村庄与森林           rpg_demo_game：本游戏在其上扩展的地图、人物和物品
+剧情与世界    rpg_plus_game
 素材与规则           village_pack（美术）、classic_rpg_pack（属性、职业、装备）
 属性与检定           stats_base, stat_checks
 图块世界             rpg
@@ -64,18 +69,18 @@ RPG Plus 就是合集 **RPG Plus**。它的分组：
 
 ```filestree
 rpg_plus_game/
-├── scenarios/rpg_plus/     序章、training_yard、events/（教头、占卜师）、woodland/、desert/
-├── map_events/<map>/       新人物、工作台、洞穴门、木桶；相同 id 的事件会覆盖 rpg_demo_game 的
-├── maps/                   rpg_woodland_shrine.json, rpg_desert.json
-├── scenes/                 岔路口、练武场、圣祠、沙漠
-├── quests/woodland.json    日志的阶段
-├── items/, recipes/, stations/   材料、成品、工作台的菜单
-├── patches/character.json  给 rpg_demo_game 的怪物追加的掉落
-├── patches/shop.json       给村庄商人追加的商品
-└── characters/, charsets/, backgrounds/, locale/
+├── maps/                       village, house, forest, shrine, desert
+├── scenes/                     tile maps, crossroads, training yard
+├── placements/<map>/           NPCs, doors, pickups, barrels
+├── scenarios/rpg_plus/         village intro, map interactions, prologue, training, woodland, desert
+├── characters/                 hero, monsters, stats and loot
+├── shops/village_merchant.json
+├── items/, recipes/, stations/
+├── quests/woodland.json
+└── charsets/, backgrounds/, locale/
 ```
 
-**去扩展别的模组，而不是复制它。** 村庄、房屋和森林仍然来自 `rpg_demo_game`。与那里相同 id 的事件会将其替换（村长得到新对话）；新 id 则添加人物。补丁给它的怪物添加掉落，给它的商店添加商品。
+所有游戏内容均在 `rpg_plus_game` 中：地图、事件、角色、物品、商店和剧情。怪物属性和掉落直接定义在 `characters/rpg_plus_characters.json`，商人定义在 `shops/village_merchant.json`。为兼容存档保留 `rpg_plus/` 资源键；它们不再属于独立模组。
 
 **剧本中的检定与条件。** 占卜师先测试幸运，再打量你的装备：
 
@@ -96,10 +101,9 @@ end
 ```json
 {
   "Id": "rpg_plus/salve",
-  "Name": "rpg_plus/recipe/salve/name",
   "Type": "Cooking",
   "Input": [
-    { "Id": "rpg_demo/mushroom", "Count": 1 },
+    { "Id": "rpg_plus/mushroom", "Count": 1 },
     { "Id": "rpg_plus/resin", "Count": 1 }
   ],
   "Output": [{ "Id": "rpg_plus/salve", "Count": 1 }]

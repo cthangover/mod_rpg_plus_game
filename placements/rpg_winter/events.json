@@ -1,0 +1,61 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_winter/winter_to_desert",
+      "Object": "village_pack/marker/trigger",
+      "X": 39,
+      "Y": 14,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_desert",
+          "X": 1,
+          "Y": 12,
+          "Dir": "Right"
+        }
+      }
+    },
+    {
+      "Id": "rpg_winter/winter_chest",
+      "Object": "village_pack/chest",
+      "X": 27,
+      "Y": 14,
+      "Interact": {
+        "Commands": [
+          "set money=rnd(3,5)",
+          "cset reward \"${money}+0\"",
+          "flag self.open 1",
+          "action item.add id=money/coin count=${reward}",
+          "ptext \"В сундуке ${reward} монет.\" key=rpg_plus/winter/chest_reward"
+        ]
+      }
+    },
+    {
+      "Id": "rpg_winter/winter_barrel",
+      "Object": "village_pack/container/barrel",
+      "X": 30,
+      "Y": 14,
+      "Interact": {
+        "Commands": [
+          "flag self.open 1",
+          "action item.add id=money/coin count=2",
+          "ptext \"You open the barrel.\" key=village_pack/object/barrel/open"
+        ]
+      }
+    },
+    {
+      "Id": "rpg_winter/winter_sign",
+      "Object": "village_pack/marker/trigger",
+      "X": 34,
+      "Y": 13,
+      "Solid": true,
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "ptext \"На восток — пустыня. Надпись не согласовали с погодой.\" key=rpg_plus/winter/sign"
+        ]
+      }
+    }
+  ]
+}

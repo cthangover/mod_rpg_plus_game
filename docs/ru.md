@@ -18,6 +18,12 @@ RPG Plus — законченная небольшая RPG: пролог-нов�
 
 Прочие жители деревни: **наставник** ведёт на тренировочную площадку (опыт один раз и проверка силы с бревном), **гадалка** читает вашу удачу. Очаг у колодца восстанавливает здоровье и ману. Награды нельзя собрать дважды.
 
+![Деревня](assets/village.jpg)
+
+![Серый лес](assets/forest.jpg)
+
+![Деревенский торговец](assets/shop.jpg)
+
 ![Верстак у колодца с тремя рецептами: Лесная мазь, Плащ лесного стража и Сторожевой фонарь, имеющиеся и нужные ингредиенты и кнопка изготовления.](assets/workbench.jpg)
 
 ![Разрушенное святилище в лесу, «Лес помнит», герой несёт фонарь.](assets/shrine.jpg)
@@ -43,8 +49,7 @@ RPG Plus — законченная небольшая RPG: пролог-нов�
 RPG Plus — это коллекция **RPG Plus**. Её блоки:
 
 ```text
-Сюжет                 rpg_plus_game (этот мод)
-Деревня и лес         rpg_demo_game: карты, люди и предметы, которые игра расширяет
+Сюжет и мир    rpg_plus_game
 Ресурсы и правила     village_pack (арт), classic_rpg_pack (характеристики, классы, снаряжение)
 Характеристики и проверки  stats_base, stat_checks
 Тайловый мир          rpg
@@ -64,18 +69,18 @@ RPG Plus — это коллекция **RPG Plus**. Её блоки:
 
 ```filestree
 rpg_plus_game/
-├── scenarios/rpg_plus/     пролог, training_yard, events/ (наставник, гадалка), woodland/, desert/
-├── map_events/<map>/       новые люди, верстак, дверь пещеры, бочки; события с теми же id заменяют события rpg_demo_game
-├── maps/                   rpg_woodland_shrine.json, rpg_desert.json
-├── scenes/                 перекрёсток, тренировочная площадка, святилище, пустыня
-├── quests/woodland.json    этапы журнала
-├── items/, recipes/, stations/   материалы, изделия, меню верстака
-├── patches/character.json  добыча, добавленная монстрам rpg_demo_game
-├── patches/shop.json       товары сверх обычных у деревенского торговца
-└── characters/, charsets/, backgrounds/, locale/
+├── maps/                       village, house, forest, shrine, desert
+├── scenes/                     tile maps, crossroads, training yard
+├── placements/<map>/           NPCs, doors, pickups, barrels
+├── scenarios/rpg_plus/         village intro, map interactions, prologue, training, woodland, desert
+├── characters/                 hero, monsters, stats and loot
+├── shops/village_merchant.json
+├── items/, recipes/, stations/
+├── quests/woodland.json
+└── charsets/, backgrounds/, locale/
 ```
 
-**Расширяйте чужой мод, а не копируйте его.** Деревня, дом и лес по-прежнему берутся из `rpg_demo_game`. Событие с тем же id, что там, заменяет его (староста получает новые диалоги); новые id добавляют людей. Патчи добавляют добычу его монстрам и товары его лавке.
+Весь игровой контент находится в `rpg_plus_game`: карты, события, персонажи, предметы, магазины и сюжет. Характеристики и добыча монстров задаются в `characters/rpg_plus_characters.json`, торговец — в `shops/village_merchant.json`. Ключи ресурсов `rpg_plus/` сохранены для совместимости сохранений; отдельного мода demo больше нет.
 
 **Проверки и условия в сценариях.** Гадалка испытывает Удачу, а потом смотрит на ваше снаряжение:
 
@@ -96,10 +101,9 @@ end
 ```json
 {
   "Id": "rpg_plus/salve",
-  "Name": "rpg_plus/recipe/salve/name",
   "Type": "Cooking",
   "Input": [
-    { "Id": "rpg_demo/mushroom", "Count": 1 },
+    { "Id": "rpg_plus/mushroom", "Count": 1 },
     { "Id": "rpg_plus/resin", "Count": 1 }
   ],
   "Output": [{ "Id": "rpg_plus/salve", "Count": 1 }]

@@ -1,0 +1,29 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_winter/village_pack_winter_white_wolf",
+      "Object": "village_pack/enemy/white_wolf",
+      "X": 24,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_winter/village_pack_winter_yeti",
+      "Object": "village_pack/enemy/yeti",
+      "X": 10,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_winter/village_pack_winter_walrus",
+      "Object": "village_pack/enemy/walrus",
+      "X": 28,
+      "Y": 21
+    },
+    {
+      "Id": "rpg_winter/village_pack_winter_polar_bear",
+      "Object": "village_pack/enemy/polar_bear",
+      "X": 15,
+      "Y": 23
+    }
+  ]
+}

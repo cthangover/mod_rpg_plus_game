@@ -1,0 +1,50 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_elder_house/exit",
+      "Object": "village_pack/marker/trigger",
+      "X": 6,
+      "Y": 9,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_village",
+          "X": 6,
+          "Y": 7,
+          "Dir": "Down"
+        }
+      }
+    },
+    {
+      "Id": "rpg_elder_house/elder",
+      "Object": "village_pack/npc/elder",
+      "X": 6,
+      "Y": 3,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/woodland/elder"
+      }
+    },
+    {
+      "Id": "rpg_elder_house/chest",
+      "Object": "village_pack/chest",
+      "X": 9,
+      "Y": 7,
+      "Interact": {
+        "Scenario": "rpg_plus/events/house_chest",
+        "Commands": null
+      },
+      "States$add": [
+        {
+          "Id": "open",
+          "When": "rpg_house_chest == 1",
+          "Interact": {
+            "Scenario": "rpg_plus/events/chest_empty",
+            "Commands": null
+          }
+        }
+      ]
+    }
+  ]
+}

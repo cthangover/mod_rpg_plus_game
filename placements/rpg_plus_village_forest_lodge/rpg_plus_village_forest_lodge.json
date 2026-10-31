@@ -1,0 +1,29 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_plus_village_forest_lodge/forest_hall_room_1",
+      "Object": "village_pack/interior/forest_hall_room",
+      "X": 0,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_plus_village_forest_lodge/bed_1",
+      "Object": "village_pack/furniture/bed",
+      "X": 1,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_plus_village_forest_lodge/table_1",
+      "Object": "village_pack/furniture/table",
+      "X": 7,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_plus_village_forest_lodge/iron_stove_1",
+      "Object": "village_pack/furniture/iron_stove",
+      "X": 9,
+      "Y": 2
+    }
+  ]
+}

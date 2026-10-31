@@ -1,0 +1,44 @@
+{
+  "Kind": "item",
+  "Items": [
+    {
+      "Id": "rpg_plus/branches",
+      "Name": "rpg_plus/item/branches/name",
+      "Description": "rpg_plus/item/branches/desc",
+      "Cost": 1,
+      "Sprite": "rpg_plus/branch_bundle",
+      "ItemType": "Resource",
+      "ItemAction": "null"
+    },
+    {
+      "Id": "rpg_plus/stones",
+      "Name": "rpg_plus/item/stones/name",
+      "Description": "rpg_plus/item/stones/desc",
+      "Cost": 2,
+      "Sprite": "rpg_plus/stone_pile",
+      "ItemType": "Resource",
+      "ItemAction": "null"
+    },
+    {
+      "Id": "rpg_plus/mushroom",
+      "Name": "rpg_plus/item/mushroom/name",
+      "Description": "rpg_plus/item/mushroom/desc",
+      "Cost": 2,
+      "Sprite": "rpg_plus/forest_mushroom",
+      "ItemType": "Food,TargetUsed",
+      "ItemAction": "action/heal",
+      "heal": 5,
+      "verb": "ui/inventory/verb_eat"
+    },
+    {
+      "Id": "rpg_plus/elixir",
+      "Name": "rpg_plus/item/elixir/name",
+      "Description": "rpg_plus/item/elixir/desc",
+      "Cost": 10,
+      "Sprite": "rpg_plus/healing_elixir",
+      "ItemType": "TargetUsed",
+      "ItemAction": "action/heal",
+      "heal": 20
+    }
+  ]
+}

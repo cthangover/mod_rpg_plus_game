@@ -18,6 +18,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
     using Cthangover.Mods.Interface.View;
     using Cthangover.Mods.Items;
     using Cthangover.Mods.Rpg;
+    using Cthangover.Mods.Rpg.Battles;
     using Cthangover.Mods.Stats;
     using Cthangover.Mods.Trading;
     using Godot;
@@ -26,7 +27,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
     /// Plays the RPG Plus sample end to end, the way a player would, and checks that the
     /// mods agree with each other at every step: the prologue's class choice reaches the
     /// sheet, the sheet reaches the battle attributes, gear and tonics change both, a
-    /// formula skill hits the stat-patched wolf, the training yard levels the hero up and
+    /// formula skill hits the wolf that has its own stats, the training yard levels the hero up and
     /// teaches the class skill, the sheet panel takes gear off, and a save brings it all back.
     /// </summary>
     public partial class RpgPlusTestDriver : Node
@@ -136,7 +137,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                 case 2:
                     CheckGear();
                     CheckConditionsAndShop();
-                    Check(RpgBattleService.Start("rpg_wolf", WinFlag), "a battle with the stat-patched wolf starts from the map");
+                    Check(RpgBattleService.Start("rpg_wolf", WinFlag), "a battle with the wolf that has its own stats starts from the map");
                     Godot.Engine.TimeScale = 4;
                     Next();
                     return;
@@ -166,7 +167,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                         return;
                     Check(Flag(WinFlag) == "1", "the win flag is set after the victory");
                     // To the trainer, added to the demo's village by this mod's own map events file.
-                    Check(View.FindEvent("rpg_plus_trainer")?.Visible == true, "the trainer stands in the demo's village");
+                    Check(View.Find("rpg_village/rpg_plus_trainer")?.Visible == true, "the trainer stands in the demo's village");
                     View.PlacePlayer(26, 10, RpgDirection.Right);
                     choices.Enqueue(0); // the trainer: to the yard
                     choices.Enqueue(0); // the yard: drill
@@ -288,9 +289,9 @@ namespace Cthangover.Mods.RpgPlus.Tests
             Check(ScenarioCondition.Evaluate("equipped(rpg_hero, 'classic/iron_sword') && archetype(rpg_hero, 'classic/rogue') && stat(rpg_hero, str) >= 7 && level(rpg_hero) == 1"),
                 "conditions read equipment, archetype, stats and level");
             Check(!ScenarioCondition.Evaluate("equipped(rpg_hero, 'classic/dagger')"), "a dagger in the bag is not worn");
-            var shop = ShopFactory.Instance.Get("rpg_demo/village_merchant");
-            Check(shop?.FindSell(IronSword)?.Price == 30, "the shop patch added the gear to the demo's merchant");
-            Check(shop?.FindSell("rpg_demo/elixir") != null, "the merchant still sells his own elixir");
+            var shop = ShopFactory.Instance.Get("rpg_plus/village_merchant");
+            Check(shop?.FindSell(IronSword)?.Price == 30, "the merchant sells the iron sword at 30 (his own stock)");
+            Check(shop?.FindSell("rpg_plus/elixir") != null, "the merchant still sells his own elixir");
         }
 
         private void CheckBattle()
@@ -300,7 +301,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
             if (wolf == null)
                 return;
             var wolfSheet = StatsService.Sheet("rpg_wolf");
-            Check(wolf.Attributes.Health.BaseValue == wolfSheet.Rounded("hp") && wolfSheet.Rounded("hp") == 31, $"the patched wolf fights with its sheet's health 31, got {wolf.Attributes.Health.BaseValue}");
+            Check(wolf.Attributes.Health.BaseValue == wolfSheet.Rounded("hp") && wolfSheet.Rounded("hp") == 31, $"the wolf fights with its sheet's health 31, got {wolf.Attributes.Health.BaseValue}");
             Check(wolf.Attributes.Defence.Value == 2, $"and its sheet's shield floor(vit/2) = 2, got {wolf.Attributes.Defence.Value}");
             var before = wolf.Attributes.Health.Value;
             var hero = new Character { ID = Hero, Level = StatsService.LevelOf(Hero), Attributes = Entry.Attributes };
@@ -362,24 +363,24 @@ namespace Cthangover.Mods.RpgPlus.Tests
             => UiHost.Instance != null && UiHost.Instance.TryGetInstance(SheetEntry, out var control) ? control as StatSheetPanel : null;
 
         /// <summary>
-        /// Event pages and a move route (rpg): the tame slime walks its route, the chest gives
-        /// coins once and then shows its open page. True when done; runs over several ticks.
+        /// States and a move route (rpg): the tame slime walks its route, the chest gives
+        /// coins once and then shows its open state. True when done; runs over several ticks.
         /// </summary>
         private bool CheckPagesAndRoute()
         {
-            var chest = View.FindEvent("rpg_plus_chest");
-            var slime = View.FindEvent("rpg_plus_pet_slime");
+            var chest = View.Find("rpg_village/rpg_plus_chest");
+            var slime = View.Find("rpg_village/rpg_plus_pet_slime");
             switch (pagesPhase)
             {
                 case 0:
-                    Check(chest?.Visible == true && chest.PageIndex == 0, "the closed chest shows its first page");
+                    Check(chest?.Visible == true && chest.StateIndex == -1, "the closed chest shows no state yet");
                     Check(slime?.Current?.Route != null, "the tame slime has a route");
                     pagesWait = 0;
                     pagesPhase++;
                     return false;
                 case 1:
                     // Left, wait, right, right…: within three seconds it has left its cell once.
-                    slimeMoved |= slime != null && slime.Cell != new Vector2I(6, 15);
+                    slimeMoved |= slime != null && slime.Actor.Cell != new Vector2I(6, 15);
                     pagesWait += TickSeconds;
                     if (pagesWait < 3)
                         return false;
@@ -393,8 +394,8 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     if (AdvanceDialog())
                         return false;
                     Check(Inventory.CheckCount("money/coin") == coinsBeforeChest + 10, "the chest gave ten coins");
-                    Check(chest?.PageIndex == 1 && chest.Current.Tile == 15, "the flag switched the chest to its open page");
-                    Check(chest?.Current?.Commands?.Count == 1, "the open page has its own commands");
+                    Check(chest?.StateIndex >= 0 && chest.Current.Parts?[0].Image == "container/chest_open", "the self.open flag switched the chest to its open state");
+                    Check(chest?.Current?.Interact?.Commands?.Count == 1, "the open state has its own commands");
                     pagesPhase++;
                     return true;
                 default:

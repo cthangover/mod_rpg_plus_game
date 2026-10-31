@@ -18,6 +18,12 @@ RPG Plus는 완성된 소규모 RPG입니다. 영웅의 과거를 고르는 비�
 
 마을의 다른 사람들: **훈련관**은 수련장으로 안내해 주고(경험치는 한 번, 통나무 드는 힘 판정 포함), **점쟁이**는 당신의 행운을 읽습니다. 우물 곁 화덕은 체력과 마나를 회복합니다. 보상은 두 번 받을 수 없습니다.
 
+![마을](assets/village.jpg)
+
+![회색 숲](assets/forest.jpg)
+
+![마을 상인](assets/shop.jpg)
+
 ![우물 작업대와 세 레시피: 숲 연고, 숲 수호자 망토, 수호 등불. 가지고 있는 재료와 필요한 재료, 그리고 제작 버튼.](assets/workbench.jpg)
 
 ![숲 속 폐허가 된 성소, “숲은 기억한다”, 등불을 든 영웅.](assets/shrine.jpg)
@@ -43,8 +49,7 @@ RPG Plus는 완성된 소규모 RPG입니다. 영웅의 과거를 고르는 비�
 RPG Plus의 정체는 컬렉션 **RPG Plus**입니다. 그 블록:
 
 ```text
-이야기               rpg_plus_game(이 모드)
-마을과 숲            rpg_demo_game: 이 게임이 확장하는 맵, 사람, 아이템
+이야기와 세계    rpg_plus_game
 에셋과 규칙          village_pack(그림), classic_rpg_pack(스탯, 클래스, 장비)
 스탯과 판정          stats_base, stat_checks
 타일 세계            rpg
@@ -64,18 +69,18 @@ RPG Plus의 정체는 컬렉션 **RPG Plus**입니다. 그 블록:
 
 ```filestree
 rpg_plus_game/
-├── scenarios/rpg_plus/     프롤로그, training_yard, events/(훈련관, 점쟁이), woodland/, desert/
-├── map_events/<map>/       새 사람들, 작업대, 동굴 문, 통. 같은 id는 rpg_demo_game의 것을 대체
-├── maps/                   rpg_woodland_shrine.json, rpg_desert.json
-├── scenes/                 갈림길, 수련장, 성소, 사막
-├── quests/woodland.json    저널 단계
-├── items/, recipes/, stations/   재료, 제작품, 작업대 메뉴
-├── patches/character.json  rpg_demo_game 몬스터에 추가된 전리품
-├── patches/shop.json       마을 상인의 물품 추가
-└── characters/, charsets/, backgrounds/, locale/
+├── maps/                       village, house, forest, shrine, desert
+├── scenes/                     tile maps, crossroads, training yard
+├── placements/<map>/           NPCs, doors, pickups, barrels
+├── scenarios/rpg_plus/         village intro, map interactions, prologue, training, woodland, desert
+├── characters/                 hero, monsters, stats and loot
+├── shops/village_merchant.json
+├── items/, recipes/, stations/
+├── quests/woodland.json
+└── charsets/, backgrounds/, locale/
 ```
 
-**복사하지 말고 다른 모드를 확장하세요.** 마을도 집도 숲도 여전히 `rpg_demo_game`에서 옵니다. 거기와 같은 id의 이벤트는 그것을 대체하고(촌장은 새 대사를 얻음), 새 id는 사람을 더합니다. 패치는 그 몬스터의 전리품과 가게 물품을 더합니다.
+맵, 이벤트, 캐릭터, 아이템, 상점과 이야기는 모두 `rpg_plus_game`에 있습니다. 몬스터 능력치와 전리품은 `characters/rpg_plus_characters.json`, 상인은 `shops/village_merchant.json`에서 직접 편집합니다. 저장 호환성을 위해 `rpg_plus/` 리소스 키를 유지하며 별도 모드는 아닙니다.
 
 **시나리오의 판정과 조건.** 점쟁이는 행운을 시험한 뒤 당신의 장비를 봅니다:
 
@@ -96,10 +101,9 @@ end
 ```json
 {
   "Id": "rpg_plus/salve",
-  "Name": "rpg_plus/recipe/salve/name",
   "Type": "Cooking",
   "Input": [
-    { "Id": "rpg_demo/mushroom", "Count": 1 },
+    { "Id": "rpg_plus/mushroom", "Count": 1 },
     { "Id": "rpg_plus/resin", "Count": 1 }
   ],
   "Output": [{ "Id": "rpg_plus/salve", "Count": 1 }]

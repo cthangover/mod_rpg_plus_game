@@ -1,0 +1,35 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_village/rpg_plus_enter_wood_townhouse",
+      "Object": "village_pack/marker/trigger",
+      "X": 40,
+      "Y": 11,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_plus_village_wood_townhouse",
+          "X": 5,
+          "Y": 8,
+          "Dir": "Up"
+        }
+      }
+    },
+    {
+      "Id": "rpg_village/rpg_plus_enter_forest_lodge",
+      "Object": "village_pack/marker/trigger",
+      "X": 52,
+      "Y": 11,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_plus_village_forest_lodge",
+          "X": 5,
+          "Y": 8,
+          "Dir": "Up"
+        }
+      }
+    }
+  ]
+}

@@ -18,19 +18,19 @@ Start the `rpg_plus` collection. Choose any class in the prologue. WASD/arrows m
 | What | Where |
 | --- | --- |
 | Dialogs, choices, rewards | `scenarios/rpg_plus/woodland/*.scenario` |
-| NPCs, workbench, cave door, changing beacon | `map_events/<map>/*.json` |
+| NPCs, workbench, cave door, changing beacon | `placements/<map>/*.json` |
 | Journal stages | `quests/woodland.json` + `locale/*.properties` |
-| Guaranteed and random monster loot | `patches/character.json` |
+| Guaranteed and random monster loot | `characters/rpg_plus_characters.json` |
 | Materials, consumables, crafted armor | `items/woodland.json` |
 | Recipes and the station's menu | `recipes/woodland.json`, `stations/woodland.json` |
-| Merchant's stock and buyback | `patches/shop.json` |
+| Merchant's stock and buyback | `shops/village_merchant.json` |
 | Shrine ground and collision | `maps/rpg_woodland_shrine.json` |
 
 The RPG map editor paints ground, collision and events. It now exposes map atmosphere and event move routes. The Data Editor exposes recipes and crafting stations through the crafting mod's schemas; its ordinary item form exposes gear traits through equipment's schemas.
 
 `when "item('rpg_plus/salve') >= 1" -> :offer` checks the actual bag, including after load. `action item.remove id=rpg_plus/salve` consumes a delivery only after that check. Reward flags make side quests and the final payment repeat-safe. Journal stages are ordinary `quest.set_data_status` actions.
 
-Event ids shared with `rpg_demo_game` replace its elder events in load order, while new ids add the herbalist, workbench and shrine door. This mod declares the owner's dependency. The demo still supplies the village, house and forest; village_pack supplies reusable art. All production content in this mod remains data and scenarios. Test C# is inert under `test_suites/` unless requested.
+All maps, events, characters, items, shops and story content belong to this mod. The elder events directly reference the woodland dialogs; monster loot and merchant stock are stored in their own definitions. `village_pack` supplies reusable art. Production content remains data and scenarios; test C# is inert under `test_suites/` unless requested.
 
 The `crafting` mod is reusable across genres. Woodland quests stay here; tile lighting, shadows, camera movement, interaction markers and atmosphere stay in `rpg`. The novel's art is unaffected.
 

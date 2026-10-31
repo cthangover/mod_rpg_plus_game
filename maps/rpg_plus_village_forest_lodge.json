@@ -1,0 +1,31 @@
+{
+  "Kind": "rpg_map",
+  "Items": [
+    {
+      "Id": "rpg_plus_village_forest_lodge",
+      "Name": "village_pack/place/forest_hall_room",
+      "Width": 12,
+      "Height": 10,
+      "Zoom": 2,
+      "Spawn": {
+        "X": 5,
+        "Y": 8,
+        "Dir": "Up"
+      },
+      "Ambient": "#d7c6ad",
+      "Legend": {},
+      "Collision": [
+        "############",
+        "############",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#..........#",
+        "#####oo#####"
+      ]
+    }
+  ]
+}

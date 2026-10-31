@@ -18,6 +18,12 @@ Chơi từ **Chơi → RPG Plus → Trò chơi mới**.
 
 Một số người khác trong làng: **võ sư** dẫn bạn ra bãi tập (kinh nghiệm một lần, kèm phép kiểm Sức mạnh để nhấc khúc gỗ), và **bà thầy bói** đọc vận may của bạn. Lò sưởi bên giếng hồi máu và mana. Phần thưởng không nhận lại được lần thứ hai.
 
+![Làng](assets/village.jpg)
+
+![Rừng Xám](assets/forest.jpg)
+
+![Thương nhân trong làng](assets/shop.jpg)
+
 ![Bàn chế tạo bên giếng với ba công thức: Thuốc mỡ rừng, Áo choàng người canh rừng và Đèn lồng hộ mệnh, nguyên liệu bạn có và cần, cùng nút Chế tạo.](assets/workbench.jpg)
 
 ![Đền thờ hoang trong rừng, “Khu rừng nhớ”, anh hùng đang xách đèn.](assets/shrine.jpg)
@@ -43,8 +49,7 @@ Trận đánh dùng lối chiến đấu ra lệnh (FF), sát thương tính the
 RPG Plus là bộ sưu tập **RPG Plus**. Các khối của nó:
 
 ```text
-Cốt truyện           rpg_plus_game (mod này)
-Làng và rừng         rpg_demo_game: bản đồ, con người và vật phẩm mà trò này mở rộng
+Cốt truyện và thế giới    rpg_plus_game
 Tài nguyên và luật   village_pack (hình ảnh), classic_rpg_pack (chỉ số, class, trang bị)
 Chỉ số và phép kiểm  stats_base, stat_checks
 Thế giới ô vuông     rpg
@@ -64,18 +69,18 @@ Cấu hình của bộ sưu tập: `battle.core` là `ff_battle`, phép kiểm g
 
 ```filestree
 rpg_plus_game/
-├── scenarios/rpg_plus/     phần mở đầu, training_yard, events/ (võ sư, thầy bói), woodland/, desert/
-├── map_events/<map>/       người mới, bàn chế tạo, cửa hang, thùng hàng; id trùng sẽ thay của rpg_demo_game
-├── maps/                   rpg_woodland_shrine.json, rpg_desert.json
-├── scenes/                 ngã ba, bãi tập, đền thờ, hoang mạc
-├── quests/woodland.json    các chặng nhật ký
-├── items/, recipes/, stations/   nguyên liệu, sản phẩm, trình đơn của bàn chế tạo
-├── patches/character.json  chiến lợi phẩm thêm cho quái của rpg_demo_game
-├── patches/shop.json       thêm hàng cho thương nhân trong làng
-└── characters/, charsets/, backgrounds/, locale/
+├── maps/                       village, house, forest, shrine, desert
+├── scenes/                     tile maps, crossroads, training yard
+├── placements/<map>/           NPCs, doors, pickups, barrels
+├── scenarios/rpg_plus/         village intro, map interactions, prologue, training, woodland, desert
+├── characters/                 hero, monsters, stats and loot
+├── shops/village_merchant.json
+├── items/, recipes/, stations/
+├── quests/woodland.json
+└── charsets/, backgrounds/, locale/
 ```
 
-**Hãy mở rộng mod của người khác thay vì copy nó.** Làng, nhà và rừng vẫn đến từ `rpg_demo_game`. Sự kiện trùng id với sự kiện ở đó sẽ thay thế nó (trưởng làng nhận hội thoại mới); id mới thêm người. Các bản vá thêm chiến lợi phẩm cho quái và thêm hàng cho cửa hàng của nó.
+Toàn bộ bản đồ, sự kiện, nhân vật, vật phẩm, cửa hàng và cốt truyện nằm trong `rpg_plus_game`. Chỉnh chỉ số và chiến lợi phẩm ở `characters/rpg_plus_characters.json`, thương nhân ở `shops/village_merchant.json`. Giữ nguyên khóa tài nguyên `rpg_plus/` để tương thích bản lưu; đây không còn là mod riêng.
 
 **Phép kiểm và điều kiện trong kịch bản.** Bà thầy bói thử May mắn rồi nhìn trang bị của bạn:
 
@@ -96,10 +101,9 @@ end
 ```json
 {
   "Id": "rpg_plus/salve",
-  "Name": "rpg_plus/recipe/salve/name",
   "Type": "Cooking",
   "Input": [
-    { "Id": "rpg_demo/mushroom", "Count": 1 },
+    { "Id": "rpg_plus/mushroom", "Count": 1 },
     { "Id": "rpg_plus/resin", "Count": 1 }
   ],
   "Output": [{ "Id": "rpg_plus/salve", "Count": 1 }]

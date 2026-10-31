@@ -1,0 +1,189 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_forest/to_village",
+      "Object": "village_pack/marker/trigger",
+      "X": 0,
+      "Y": 8,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_village",
+          "X": 30,
+          "Y": 9,
+          "Dir": "Left"
+        }
+      }
+    },
+    {
+      "Id": "rpg_forest/wolf_boss",
+      "Object": "village_pack/creature/wolf",
+      "X": 25,
+      "Y": 8,
+      "Facing": "Left",
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/events/wolf_boss"
+      },
+      "States": [
+        {
+          "Id": "hidden",
+          "When": "rpg_wolf_dead == 1",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_forest/chest",
+      "Object": "village_pack/chest",
+      "X": 16,
+      "Y": 3,
+      "Interact": {
+        "Scenario": "rpg_plus/events/forest_chest",
+        "Commands": null
+      },
+      "States$add": [
+        {
+          "Id": "open",
+          "When": "rpg_forest_chest == 1",
+          "Interact": {
+            "Scenario": "rpg_plus/events/chest_empty",
+            "Commands": null
+          }
+        }
+      ]
+    },
+    {
+      "Id": "rpg_forest/slime",
+      "Object": "village_pack/creature/slime",
+      "X": 10,
+      "Y": 8,
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus/events/slime"
+      },
+      "States": [
+        {
+          "Id": "hidden",
+          "When": "rpg_path_slime == 1",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_forest/pick_branches_1",
+      "Object": "rpg_plus/pickup/branches",
+      "X": 6,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_forest/pick_branches_2",
+      "Object": "rpg_plus/pickup/branches",
+      "X": 9,
+      "Y": 2
+    },
+    {
+      "Id": "rpg_forest/pick_branches_3",
+      "Object": "rpg_plus/pickup/branches",
+      "X": 20,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_forest/pick_branches_4",
+      "Object": "rpg_plus/pickup/branches",
+      "X": 12,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_forest/pick_branches_5",
+      "Object": "rpg_plus/pickup/branches",
+      "X": 23,
+      "Y": 14
+    },
+    {
+      "Id": "rpg_forest/pick_stones_1",
+      "Object": "rpg_plus/pickup/stones",
+      "X": 11,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_forest/pick_stones_2",
+      "Object": "rpg_plus/pickup/stones",
+      "X": 21,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/pick_stones_3",
+      "Object": "rpg_plus/pickup/stones",
+      "X": 24,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_forest/pick_stones_4",
+      "Object": "rpg_plus/pickup/stones",
+      "X": 26,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/pick_stones_5",
+      "Object": "rpg_plus/pickup/stones",
+      "X": 14,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/pick_mushroom_1",
+      "Object": "rpg_plus/pickup/mushroom",
+      "X": 10,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_forest/pick_mushroom_2",
+      "Object": "rpg_plus/pickup/mushroom",
+      "X": 23,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/pick_mushroom_3",
+      "Object": "rpg_plus/pickup/mushroom",
+      "X": 21,
+      "Y": 14
+    },
+    {
+      "Id": "rpg_forest/pick_mushroom_4",
+      "Object": "rpg_plus/pickup/mushroom",
+      "X": 2,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_forest/pick_mushroom_5",
+      "Object": "rpg_plus/pickup/mushroom",
+      "X": 20,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_forest/supply_barrel",
+      "Object": "rpg_plus/container/supply_barrel",
+      "X": 18,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/object_desert_barrel_closed",
+      "Object": "village_pack/decor/barrel",
+      "X": 16,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/object_desert_barrel_closed_2",
+      "Object": "village_pack/decor/barrel",
+      "X": 15,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/object_desert_barrel_closed_3",
+      "Object": "village_pack/decor/barrel",
+      "X": 16,
+      "Y": 6
+    }
+  ]
+}

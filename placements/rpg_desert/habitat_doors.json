@@ -1,0 +1,35 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_desert/rpg_plus_enter_desert_house",
+      "Object": "village_pack/marker/trigger",
+      "X": 49,
+      "Y": 12,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_plus_desert_desert_house",
+          "X": 5,
+          "Y": 8,
+          "Dir": "Up"
+        }
+      }
+    },
+    {
+      "Id": "rpg_desert/rpg_plus_enter_desert_inn",
+      "Object": "village_pack/marker/trigger",
+      "X": 62,
+      "Y": 12,
+      "Interact": {
+        "Trigger": "Step",
+        "Teleport": {
+          "Map": "rpg_plus_desert_desert_inn",
+          "X": 5,
+          "Y": 8,
+          "Dir": "Up"
+        }
+      }
+    }
+  ]
+}

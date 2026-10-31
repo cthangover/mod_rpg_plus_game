@@ -1,0 +1,17 @@
+{
+  "Kind": "rpg_object",
+  "Items": [
+    {
+      "Id": "rpg_plus/npc/trainer",
+      "Form": "actor",
+      "Category": "npc",
+      "Charset": "rpg_plus/trainer"
+    },
+    {
+      "Id": "rpg_plus/npc/seer",
+      "Form": "actor",
+      "Category": "npc",
+      "Charset": "rpg_plus/seer"
+    }
+  ]
+}

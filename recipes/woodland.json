@@ -3,13 +3,12 @@
   "Items": [
     {
       "Id": "rpg_plus/salve",
-      "Name": "rpg_plus/recipe/salve/name",
       "Description": "rpg_plus/recipe/salve/desc",
       "Type": "Cooking",
       "Time": 5,
       "Input": [
         {
-          "Id": "rpg_demo/mushroom",
+          "Id": "rpg_plus/mushroom",
           "Count": 1
         },
         {
@@ -26,7 +25,6 @@
     },
     {
       "Id": "rpg_plus/mantle",
-      "Name": "rpg_plus/recipe/mantle/name",
       "Description": "rpg_plus/recipe/mantle/desc",
       "Type": "Cooking",
       "Time": 10,
@@ -49,7 +47,6 @@
     },
     {
       "Id": "rpg_plus/lantern",
-      "Name": "rpg_plus/recipe/lantern/name",
       "Description": "rpg_plus/recipe/lantern/desc",
       "Type": "Cooking",
       "Time": 10,
@@ -63,7 +60,7 @@
           "Count": 2
         },
         {
-          "Id": "rpg_demo/branches",
+          "Id": "rpg_plus/branches",
           "Count": 2
         }
       ],

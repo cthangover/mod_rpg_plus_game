@@ -1,0 +1,10 @@
+{
+  "name": "Winter biome integration",
+  "description": "Real desert/winter transitions, reusable objects, one-time loot, snow profiles, planar fences and both renderers.",
+  "sources": [
+    "src/*.cs"
+  ],
+  "depends": [
+    "rpg_plus_game>=1"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "Kind": "rpg_object",
+  "Items": [
+    {
+      "Id": "rpg_plus/pickup/branches",
+      "Form": "sprite",
+      "Category": "pickup",
+      "Extends": "village_pack/decor/branches",
+      "Interact": {
+        "Trigger": "Step",
+        "Scenario": "rpg_plus/events/pick_branches",
+        "Commands": [
+          "flag self.picked 1",
+          "end"
+        ]
+      },
+      "States": [
+        {
+          "Id": "picked",
+          "When": "self.picked == 1",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_plus/pickup/stones",
+      "Form": "sprite",
+      "Category": "pickup",
+      "Extends": "village_pack/decor/stones",
+      "Interact": {
+        "Trigger": "Step",
+        "Scenario": "rpg_plus/events/pick_stones",
+        "Commands": [
+          "flag self.picked 1",
+          "end"
+        ]
+      },
+      "States": [
+        {
+          "Id": "picked",
+          "When": "self.picked == 1",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_plus/pickup/mushroom",
+      "Form": "sprite",
+      "Category": "pickup",
+      "Extends": "village_pack/vegetation/mushroom",
+      "Interact": {
+        "Trigger": "Step",
+        "Scenario": "rpg_plus/events/pick_mushroom",
+        "Commands": [
+          "flag self.picked 1",
+          "end"
+        ]
+      },
+      "States": [
+        {
+          "Id": "picked",
+          "When": "self.picked == 1",
+          "Hidden": true
+        }
+      ]
+    },
+    {
+      "Id": "rpg_plus/pickup/amber",
+      "Form": "sprite",
+      "Category": "pickup",
+      "Solid": false,
+      "Parts": [
+        {
+          "Image": "rpg_plus/items/amber",
+          "Geometry": "upright",
+          "At": [
+            0.125,
+            0.125
+          ],
+          "Size": [
+            0.75,
+            0.75
+          ]
+        }
+      ]
+    }
+  ]
+}

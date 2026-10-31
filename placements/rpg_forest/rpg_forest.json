@@ -1,0 +1,467 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_forest/oak_small_1",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_2",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 3,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_3",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 6,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_4",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 12,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_5",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 15,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_6",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 18,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_7",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 21,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_8",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 24,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_forest/oak_small_9",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_forest/oak_small_10",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 25,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_forest/oak_small_11",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 13,
+      "Y": 4
+    },
+    {
+      "Id": "rpg_forest/oak_small_12",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 5,
+      "Y": 8
+    },
+    {
+      "Id": "rpg_forest/oak_small_13",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 9,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/oak_small_14",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 18,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/oak_small_15",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_forest/oak_small_16",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 25,
+      "Y": 11
+    },
+    {
+      "Id": "rpg_forest/oak_small_17",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 7,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_forest/oak_small_18",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/oak_small_19",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 3,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/oak_small_20",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 6,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/oak_small_21",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 9,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/oak_small_22",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 12,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/oak_small_23",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 21,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/cave_entrance_1",
+      "Object": "village_pack/terrain/cave_entrance",
+      "X": 26,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/forest_lodge_1",
+      "Object": "village_pack/building/forest_lodge",
+      "X": 34,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_forest/log_pile_1",
+      "Object": "village_pack/decor/log_pile",
+      "X": 45,
+      "Y": 15
+    },
+    {
+      "Id": "rpg_forest/table_1",
+      "Object": "village_pack/furniture/table",
+      "X": 45,
+      "Y": 26
+    },
+    {
+      "Id": "rpg_forest/obelisk_1",
+      "Object": "village_pack/decor/obelisk",
+      "X": 35,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_forest/oak_1",
+      "Object": "village_pack/vegetation/oak",
+      "X": 45,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_forest/oak_2",
+      "Object": "village_pack/vegetation/oak",
+      "X": 51,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_forest/oak_3",
+      "Object": "village_pack/vegetation/oak",
+      "X": 45,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_forest/oak_4",
+      "Object": "village_pack/vegetation/oak",
+      "X": 3,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_forest/oak_5",
+      "Object": "village_pack/vegetation/oak",
+      "X": 21,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_forest/oak_6",
+      "Object": "village_pack/vegetation/oak",
+      "X": 39,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_forest/oak_7",
+      "Object": "village_pack/vegetation/oak",
+      "X": 15,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_forest/oak_8",
+      "Object": "village_pack/vegetation/oak",
+      "X": 9,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/oak_9",
+      "Object": "village_pack/vegetation/oak",
+      "X": 27,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/oak_10",
+      "Object": "village_pack/vegetation/oak",
+      "X": 45,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/spruce_1",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 51,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_forest/spruce_2",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 45,
+      "Y": 8
+    },
+    {
+      "Id": "rpg_forest/spruce_3",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 51,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_forest/spruce_4",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 9,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_forest/spruce_5",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 3,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_forest/spruce_6",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 21,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_forest/spruce_7",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 15,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/spruce_8",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 33,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/spruce_9",
+      "Object": "village_pack/vegetation/spruce",
+      "X": 51,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/pine_1",
+      "Object": "village_pack/vegetation/pine",
+      "X": 51,
+      "Y": 8
+    },
+    {
+      "Id": "rpg_forest/pine_2",
+      "Object": "village_pack/vegetation/pine",
+      "X": 39,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_forest/pine_3",
+      "Object": "village_pack/vegetation/pine",
+      "X": 15,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_forest/pine_4",
+      "Object": "village_pack/vegetation/pine",
+      "X": 51,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_forest/pine_5",
+      "Object": "village_pack/vegetation/pine",
+      "X": 9,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_forest/pine_6",
+      "Object": "village_pack/vegetation/pine",
+      "X": 3,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/pine_7",
+      "Object": "village_pack/vegetation/pine",
+      "X": 21,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/pine_8",
+      "Object": "village_pack/vegetation/pine",
+      "X": 39,
+      "Y": 33
+    },
+    {
+      "Id": "rpg_forest/rock_1",
+      "Object": "village_pack/terrain/rock",
+      "X": 22,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_forest/stump_small_1",
+      "Object": "village_pack/vegetation/stump_small",
+      "X": 9,
+      "Y": 5
+    },
+    {
+      "Id": "rpg_forest/rock_2",
+      "Object": "village_pack/terrain/rock",
+      "X": 24,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_forest/rock_3",
+      "Object": "village_pack/terrain/rock",
+      "X": 25,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_forest/rock_4",
+      "Object": "village_pack/terrain/rock",
+      "X": 26,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_forest/stump_small_2",
+      "Object": "village_pack/vegetation/stump_small",
+      "X": 17,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/rock_5",
+      "Object": "village_pack/terrain/rock",
+      "X": 24,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/rock_6",
+      "Object": "village_pack/terrain/rock",
+      "X": 25,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_forest/rock_7",
+      "Object": "village_pack/terrain/rock",
+      "X": 24,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/rock_8",
+      "Object": "village_pack/terrain/rock",
+      "X": 25,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/rock_9",
+      "Object": "village_pack/terrain/rock",
+      "X": 26,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/rock_10",
+      "Object": "village_pack/terrain/rock",
+      "X": 15,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_forest/rock_11",
+      "Object": "village_pack/terrain/rock",
+      "X": 24,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_forest/rock_12",
+      "Object": "village_pack/terrain/rock",
+      "X": 25,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_forest/rock_13",
+      "Object": "village_pack/terrain/rock",
+      "X": 26,
+      "Y": 10
+    },
+    {
+      "Id": "rpg_forest/stump_small_3",
+      "Object": "village_pack/vegetation/stump_small",
+      "X": 20,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_forest/stump_small_4",
+      "Object": "village_pack/vegetation/stump_small",
+      "X": 2,
+      "Y": 14
+    },
+    {
+      "Id": "rpg_forest/tall_grass_1",
+      "Object": "village_pack/vegetation/tall_grass",
+      "X": 2,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/tall_grass_2",
+      "Object": "village_pack/vegetation/tall_grass",
+      "X": 3,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_forest/tall_grass_3",
+      "Object": "village_pack/vegetation/tall_grass",
+      "X": 11,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_forest/tall_grass_4",
+      "Object": "village_pack/vegetation/tall_grass",
+      "X": 12,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_forest/tall_grass_5",
+      "Object": "village_pack/vegetation/tall_grass",
+      "X": 13,
+      "Y": 13
+    }
+  ]
+}

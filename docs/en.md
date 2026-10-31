@@ -18,6 +18,12 @@ Start it from **Play → RPG Plus → New game**.
 
 Other people in the village: the **trainer** takes you to the training yard (experience once, and a strength check to lift a log), and the **seer** reads your luck. The hearth by the well restores health and mana. Rewards cannot be collected twice.
 
+![Village](assets/village.jpg)
+
+![Grey Forest](assets/forest.jpg)
+
+![Village merchant](assets/shop.jpg)
+
 ![The well workbench with three recipes: Woodland salve, Warden mantle and Ward lantern, the ingredients you have and need, and the Craft button.](assets/workbench.jpg)
 
 ![The ruined shrine in the forest, "The forest remembers", the hero carrying the lantern.](assets/shrine.jpg)
@@ -43,8 +49,7 @@ Battles use the command-style (FF) battle with damage computed by formulas. Some
 RPG Plus is the collection **RPG Plus**. Its blocks:
 
 ```text
-Story                 rpg_plus_game (this mod)
-Village and forest    rpg_demo_game: the maps, people and items this game extends
+Story and world    rpg_plus_game
 Assets and rules      village_pack (art), classic_rpg_pack (stats, classes, gear)
 Stats and checks      stats_base, stat_checks
 Tile world            rpg
@@ -64,18 +69,18 @@ Settings of the collection: `battle.core` is `ff_battle`, checks roll `d20`, the
 
 ```filestree
 rpg_plus_game/
-├── scenarios/rpg_plus/     prologue, training_yard, events/ (trainer, seer), woodland/, desert/
-├── map_events/<map>/       new people, the workbench, cave door, barrels; same ids replace rpg_demo_game's
-├── maps/                   rpg_woodland_shrine.json, rpg_desert.json
-├── scenes/                 crossroads, training yard, shrine, desert
-├── quests/woodland.json    journal stages
-├── items/, recipes/, stations/   materials, crafted things, the workbench's menu
-├── patches/character.json  monster loot added to rpg_demo_game's monsters
-├── patches/shop.json       more goods for the village merchant
-└── characters/, charsets/, backgrounds/, locale/
+├── maps/                       village, house, forest, shrine, desert
+├── scenes/                     tile maps, crossroads, training yard
+├── placements/<map>/           NPCs, doors, pickups, barrels
+├── scenarios/rpg_plus/         village intro, map interactions, prologue, training, woodland, desert
+├── characters/                 hero, monsters, stats and loot
+├── shops/village_merchant.json
+├── items/, recipes/, stations/
+├── quests/woodland.json
+└── charsets/, backgrounds/, locale/
 ```
 
-**Extend another mod instead of copying it.** The village, house and forest still come from `rpg_demo_game`. An event with the same id as one there replaces it (the elder gets new dialogs); new ids add people. Patches add loot to its monsters and goods to its shop.
+All game content lives in `rpg_plus_game`: maps, events, characters, items, shops and stories. Edit monster stats and loot in `characters/rpg_plus_characters.json`, and the merchant in `shops/village_merchant.json`. The `rpg_plus/` resource keys remain stable for existing saves; they are not a separate mod.
 
 **Checks and conditions in scenarios.** The seer tests Luck and then looks at your gear:
 
@@ -96,10 +101,9 @@ end
 ```json
 {
   "Id": "rpg_plus/salve",
-  "Name": "rpg_plus/recipe/salve/name",
   "Type": "Cooking",
   "Input": [
-    { "Id": "rpg_demo/mushroom", "Count": 1 },
+    { "Id": "rpg_plus/mushroom", "Count": 1 },
     { "Id": "rpg_plus/resin", "Count": 1 }
   ],
   "Output": [{ "Id": "rpg_plus/salve", "Count": 1 }]

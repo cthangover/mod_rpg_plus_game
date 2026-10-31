@@ -18,6 +18,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
     using Cthangover.Mods.Equipment;
     using Cthangover.Mods.Interface.View;
     using Cthangover.Mods.Rpg;
+    using Cthangover.Mods.Rpg.Play;
     using Cthangover.Mods.Stats;
     using Cthangover.FFBattle.UI;
     using Godot;
@@ -33,7 +34,6 @@ namespace Cthangover.Mods.RpgPlus.Tests
         private readonly Queue<int> choices = new();
         private readonly bool pact;
         private readonly string shots;
-        private readonly bool terrainReview;
         private int step;
         private int ticks;
         private int passed;
@@ -49,8 +49,14 @@ namespace Cthangover.Mods.RpgPlus.Tests
         private string victoryShot;
         private bool recoveringAmber;
         private const string SaveSlot = "slot_9917";
+        private const string Workbench = "rpg_village/woodland_workbench";
+        private const string LostAmber = "rpg_forest/woodland_lost_amber";
+        private const string Beacon = "rpg_woodland_shrine/shrine_beacon";
         private string TestName => pact ? "woodland_pact" : "woodland";
         private static RpgWorldView View => RpgWorldHost.Current?.View;
+        private static RpgInstance Find(string id) => View?.Find(id);
+        private string BeaconPicture => Find(Beacon)?.Current.Parts?[0].Image;
+        private string ExpectedBeaconPicture => pact ? "light/ward_lantern" : "decor/living_roots";
         private static DialogBox Box => RpgInput.FindDialogBox();
         private static IInventory Bag => GameData.Instance.Runtime.Inventory;
         private static string Flag(string key) => GameData.Instance.Runtime.Flags.TryGetValue(key, out var value) ? value : null;
@@ -61,7 +67,6 @@ namespace Cthangover.Mods.RpgPlus.Tests
         {
             this.pact = pact;
             this.shots = shots;
-            terrainReview = OS.GetCmdlineUserArgs().Contains("--terrain-review");
             Name = "WoodlandTestDriver";
             var timer = new Timer { WaitTime = 0.1, Autostart = true };
             timer.Timeout += Tick;
@@ -108,8 +113,8 @@ namespace Cthangover.Mods.RpgPlus.Tests
                 case 1:
                     if (View?.Map.ID != "rpg_village") return;
                     if (!CaptureVillage()) return;
-                    CheckTrees();
-                    Check(View.FindEvent("woodland_workbench").Current.Tile == 39, "workbench has its own sprite instead of a barrel");
+                    CheckSolidObjects();
+                    Check(Find(Workbench)?.Current.Parts?[0].Image == "furniture/workbench", "workbench has its own sprite instead of a barrel");
                     Check(Quest("ward").Status == QuestStatus.Progress, "journal starts in the village");
                     Go("rpg_elder_house", 6, 4, RpgDirection.Up);
                     Next(); return;
@@ -123,9 +128,9 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Go("rpg_forest", 9, 8, RpgDirection.Right); Next(); return;
                 case 4:
                     if (View?.Map.ID != "rpg_forest") return;
-                    CheckTrees();
+                    CheckSolidObjects();
                     Shot("forest");
-                    View.Map.Encounters = null;
+                    View.Map.ExtraFields?.Remove("Encounters");
                     Tap(Key.E); Next(); return;
                 case 5:
                     if (!Win("rpg_slime")) return;
@@ -149,18 +154,18 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     if (recoveringAmber)
                     {
                         Check(Bag.CheckCount("rpg_plus/amber") == 1, "old save recovers exactly one missing amber through the cave pickup");
-                        Check(!View.FindEvent("woodland_lost_amber").Visible, "recovered amber cannot be picked twice");
-                        Bag.Add("rpg_demo/mushroom", 1);
-                        Bag.Add("rpg_demo/branches", 2);
+                        Check(Find(LostAmber) is { Visible: false }, "recovered amber cannot be picked twice");
+                        Bag.Add("rpg_plus/mushroom", 1);
+                        Bag.Add("rpg_plus/branches", 2);
                         Go("rpg_village", 2, 12, RpgDirection.Right); Next(); return;
                     }
                     Check(Flag("rpg_wolf_dead") == "1", "wolf victory changes the world");
                     Check(Bag.CheckCount("rpg_plus/amber") == 1, "wolf drops the guaranteed quest amber");
                     Check(Bag.CheckCount("rpg_plus/wolf_pelt") >= 2, "wolf drops enough fur for the mantle");
-                    Check(!View.FindEvent("woodland_lost_amber").Visible, "normal victory does not duplicate the amber");
+                    Check(Find(LostAmber) is { Visible: false }, "normal victory does not duplicate the amber");
                     Bag.Remove("rpg_plus/amber", 1);
-                    View.RefreshEvents();
-                    Check(View.FindEvent("woodland_lost_amber").Visible, "missing quest amber remains recoverable after an old wolf victory");
+                    View.RefreshStates();
+                    Check(Find(LostAmber) is { Visible: true }, "missing quest amber remains recoverable after an old wolf victory");
                     View.PlacePlayer(24, 8, RpgDirection.Right);
                     recoveringAmber = true;
                     Tap(Key.E); ticks = 0; return;
@@ -169,7 +174,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Tap(Key.E); Next(); return;
                 case 12:
                     Check(Quest("apothecary").Status == QuestStatus.Progress, "herbalist requests salve");
-                    View.PlacePlayer(17, 13, RpgDirection.Up);
+                    View.PlacePlayer(17, 10, RpgDirection.Right); // faces the workbench at (18,10)
                     Tap(Key.E); Next(); return;
                 case 13:
                     if (CraftWindow() == null) return;
@@ -210,7 +215,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Tap(Key.E); Next(); return;
                 case 22:
                     Check(Quest("ward").Data.Status == 2, "elder supplies the lantern recipe objective");
-                    Go("rpg_village", 17, 13, RpgDirection.Up); Next(); return;
+                    Go("rpg_village", 17, 10, RpgDirection.Right); Next(); return;
                 case 23:
                     if (View?.Map.ID != "rpg_village") return;
                     Tap(Key.E); Next(); return;
@@ -235,7 +240,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Tap(Key.E); Next(); return;
                 case 29:
                     if (View?.Map.ID != "rpg_woodland_shrine") return;
-                    CheckTrees();
+                    CheckSolidObjects();
                     Check(!View.CanEnter(new Vector2I(12, 4)) && !View.CanEnter(new Vector2I(10, 4)) && !View.CanEnter(new Vector2I(13, 4)), "altar base and stone piers block walking");
                     Check(!View.CanEnter(new Vector2I(12, 5)) && View.CanEnter(new Vector2I(12, 6)), "beacon is solid with a reachable interaction cell");
                     Check(Quest("ward").Data.Status == 3, "cave leads to the shrine and next journal stage");
@@ -245,8 +250,8 @@ namespace Cthangover.Mods.RpgPlus.Tests
                 case 30:
                     Check(Flag("rpg_ward_choice") == (pact ? "pact" : "free"), "chosen ending reaches state");
                     Check(Bag.CheckCount("rpg_plus/ward_lantern") == 0, "shrine consumes exactly one lantern");
-                    Check(View.FindEvent("shrine_beacon").Current.Light.Radius == 6, "event page relights the shrine");
-                    Check(View.FindEvent("shrine_beacon").Current.Tile == (pact ? 36 : 38), "ending changes the beacon appearance");
+                    Check(Find(Beacon)?.Current.Light?.Radius == 6, "state relights the shrine");
+                    Check(BeaconPicture == ExpectedBeaconPicture, "ending changes the beacon appearance");
                     Shot("shrine");
                     savedResin = Bag.CheckCount("rpg_plus/resin");
                     SaveService.Save(SaveSlot);
@@ -259,7 +264,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     if (View?.Map.ID != "rpg_woodland_shrine") return;
                     Check(Flag("rpg_ward_done") == "1", "shrine choice survives save/load");
                     Check(Flag("rpg_ward_choice") == (pact ? "pact" : "free"), "specific ending survives save/load");
-                    Check(View.FindEvent("shrine_beacon").Current.Tile == (pact ? 36 : 38), "beacon appearance survives save/load");
+                    Check(BeaconPicture == ExpectedBeaconPicture, "beacon appearance survives save/load");
                     Check(Quest("ward").Data.Status == 4, "journal stage survives save/load");
                     Check(Bag.CheckCount("rpg_plus/resin") == savedResin, "crafted inventory survives save/load");
                     Check(EquipmentService.ItemIn("rpg_hero", "body") == "rpg_plus/fur_mantle", "crafted gear survives save/load");
@@ -369,38 +374,26 @@ namespace Cthangover.Mods.RpgPlus.Tests
 
         private void Next() { step++; ticks = 0; }
 
-        private void CheckTrees()
+        /// <summary>
+        /// v2 check of the map's solid objects (trees, walls, altars): every footprint cell the
+        /// object blocks is closed to walking unless the map opens it, and the map has at least one.
+        /// </summary>
+        private void CheckSolidObjects()
         {
-            var grid = RpgMapGrid.Parse(View.Map);
-            var complete = true;
-            var rootsSolid = true;
-            var fragments = 0;
-            var roots = 0;
-            var invisibleWalls = 0;
-            for (var y = 0; y < grid.Height; y++)
-                for (var x = 0; x < grid.Width; x++)
-                {
-                    if (x > 0 && y > 0 && x < grid.Width-1 && y < grid.Height-1
-                        && grid.GetCollision(x, y) == RpgCollision.Block
-                        && grid.GetTile(RpgLayer.Main, x, y) < 0 && grid.GetTile(RpgLayer.Front, x, y) < 0
-                        && !View.Tileset.IsSolid(grid.GetTile(RpgLayer.Back, x, y)))
-                        invisibleWalls++;
-                    foreach (var layer in new[] { RpgLayer.Main, RpgLayer.Front })
+            var solid = 0;
+            var blocked = true;
+            foreach (var (_, obj, x, y) in View.Session.Statics)
+                for (var dy = 0; dy < obj.Height; dy++)
+                    for (var dx = 0; dx < obj.Width; dx++)
                     {
-                        var tile = grid.GetTile(layer, x, y);
-                        if (tile < 64 || tile > 72) continue;
-                        fragments++;
-                        if (tile != 71) continue;
-                        roots++;
-                        rootsSolid &= !View.CanEnter(new Vector2I(x, y));
-                        for (var dy = 0; dy < 3; dy++)
-                            for (var dx = 0; dx < 3; dx++)
-                                complete &= grid.GetTile(dy == 2 ? RpgLayer.Main : RpgLayer.Front, x-1+dx, y-2+dy) == 64+dy*3+dx;
+                        var cell = new Vector2I(x + dx, y + dy);
+                        // A cell the map opens on purpose (collision code 'o') stays walkable.
+                        if (!obj.BlocksAt(dx, dy) || View.Session.Cells.Collision(cell.X, cell.Y) == RpgCollision.Open)
+                            continue;
+                        solid++;
+                        blocked &= !View.CanEnter(cell);
                     }
-                }
-            Check(roots > 0 && complete && fragments == roots * 9, View.Map.ID + " has complete trees without orphan fragments");
-            Check(rootsSolid, View.Map.ID + " tree trunks block walking");
-            Check(invisibleWalls == 0, View.Map.ID + " has no invisible interior collision cells");
+            Check(solid > 0 && blocked, View.Map.ID + " solid objects block walking");
         }
 
         private void Check(bool condition, string message)
@@ -426,47 +419,10 @@ namespace Cthangover.Mods.RpgPlus.Tests
             if (villageShotPhase == 1)
             {
                 Shot("village");
-                if (terrainReview)
-                    CheckWaterMaterials();
-                else
-                    time.SetTime(shotTime);
+                time.SetTime(shotTime);
                 villageShotPhase = 2;
             }
             return true;
-        }
-
-        private void CheckWaterMaterials()
-        {
-            var tileset = View.Tileset;
-            var textures = new RpgTextures();
-            Check(tileset.Image == "village/objects" && tileset.SurfaceImage == "village/surfaces",
-                "objects and surfaces use separate atlases");
-            Check(tileset.TileOf(40)?.Surface != null && tileset.AutotileOf(40) == null,
-                "water uses a base material with runtime diffusion");
-            Check(tileset.Tiles.Count(t => t.Surface != null) == 7 &&
-                  tileset.Tiles.All(t => t.Index < 192 || t.Index >= 1000 && t.Index < 1120),
-                "only seven base surfaces remain, with no baked phase or transition ids");
-            var roomTop = tileset.TileOf(1000)?.AtlasIndex ?? -1;
-            var roomPacked = roomTop >= 0 && roomTop % tileset.Columns + 12 <= tileset.Columns;
-            for (var cell = 0; cell < 120; cell++)
-                roomPacked &= tileset.TileOf(1000 + cell)?.AtlasIndex == roomTop + cell / 12 * tileset.Columns + cell % 12;
-            Check(roomPacked, "the authored room occupies a connected 12x10 atlas block");
-            Check(View.Presentation?.SurfaceChunkCount > 0,
-                "the world renders the computed surface layer");
-            var caveTop = tileset.TileOf(128)?.AtlasIndex ?? -1;
-            Check(caveTop >= 0 && caveTop % tileset.Columns + 1 < tileset.Columns &&
-                  tileset.TileOf(129)?.AtlasIndex == caveTop + 1 &&
-                  tileset.TileOf(27)?.AtlasIndex == caveTop + tileset.Columns &&
-                  tileset.TileOf(130)?.AtlasIndex == caveTop + tileset.Columns + 1,
-                "the cave occupies a complete 2x2 atlas rectangle");
-            var lampTop = tileset.TileOf(29)?.AtlasIndex ?? -1;
-            Check(lampTop >= 0 && tileset.TileOf(28)?.AtlasIndex == lampTop + tileset.Columns,
-                "the streetlamp head and foot form one vertical atlas rectangle");
-            var grid = RpgMapGrid.Parse(View.Map);
-            var generated = RpgSurfaceRenderer.Build(grid, RpgLayer.Back, tileset, textures);
-            Check(generated?.GetWidth() == grid.Width * tileset.TileSize,
-                "diffusion is generated from the current map at runtime");
-            generated?.Dispose();
         }
 
         private void Shot(string name)

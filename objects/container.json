@@ -1,0 +1,58 @@
+{
+  "Kind": "rpg_object",
+  "Items": [
+    {
+      "Id": "rpg_plus/container/supply_barrel",
+      "Name": "rpg_plus/objects/supply_barrel",
+      "Form": "sprite",
+      "Category": "container",
+      "Extends": "village_pack/container/barrel",
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "flag self.open 1",
+          "action item.add id=money/coin count=2",
+          "ptext \"В бочке две монеты.\" key=rpg_plus/objects/barrel_reward"
+        ]
+      },
+      "States$add": [
+        {
+          "Id": "open",
+          "Interact": {
+            "Trigger": "Use",
+            "Commands": [
+              "ptext \"Бочка пуста.\" key=rpg_plus/objects/barrel_empty"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": "rpg_plus/container/loot_barrel",
+      "Name": "rpg_plus/objects/supply_barrel",
+      "Form": "sprite",
+      "Category": "container",
+      "Extends": "village_pack/container/barrel",
+      "Interact": {
+        "Trigger": "Use",
+        "Commands": [
+          "flag self.open 1",
+          "action item.add id=money/coin count=2",
+          "action item.add id=rpg_plus/branches count=1",
+          "ptext \"В бочке нашлась мелочь: 2 монет(ы), 1 связка хвороста.\" key=rpg_plus/barrel/found_2_coins_branches"
+        ]
+      },
+      "States$add": [
+        {
+          "Id": "open",
+          "Interact": {
+            "Trigger": "Use",
+            "Commands": [
+              "ptext \"Пусто. Даже мусор уже забрали.\" key=rpg_plus/barrel/empty"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

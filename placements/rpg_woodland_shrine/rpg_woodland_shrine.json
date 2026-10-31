@@ -1,0 +1,305 @@
+{
+  "Kind": "rpg_placement",
+  "Items": [
+    {
+      "Id": "rpg_woodland_shrine/oak_small_1",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_2",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 3,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_3",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 6,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_4",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 15,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_5",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 18,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_6",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 21,
+      "Y": 0
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_7",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_8",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 3,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_9",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 18,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_10",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 21,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_11",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_12",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 21,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_13",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 4,
+      "Y": 7
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_14",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 21,
+      "Y": 9
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_15",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 0,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_16",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 3,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_17",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 6,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_18",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 9,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_19",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 12,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_20",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 15,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_21",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 18,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_small_22",
+      "Object": "village_pack/vegetation/oak_small",
+      "X": 21,
+      "Y": 13
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrine_arch_1",
+      "Object": "village_pack/building/shrine_arch",
+      "X": 10,
+      "Y": 1
+    },
+    {
+      "Id": "rpg_woodland_shrine/table_1",
+      "Object": "village_pack/furniture/table",
+      "X": 31,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_woodland_shrine/obelisk_1",
+      "Object": "village_pack/decor/obelisk",
+      "X": 29,
+      "Y": 6
+    },
+    {
+      "Id": "rpg_woodland_shrine/obelisk_2",
+      "Object": "village_pack/decor/obelisk",
+      "X": 38,
+      "Y": 12
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_1",
+      "Object": "village_pack/vegetation/oak",
+      "X": 39,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_2",
+      "Object": "village_pack/vegetation/oak",
+      "X": 33,
+      "Y": 8
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_3",
+      "Object": "village_pack/vegetation/oak",
+      "X": 3,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_4",
+      "Object": "village_pack/vegetation/oak",
+      "X": 21,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_5",
+      "Object": "village_pack/vegetation/oak",
+      "X": 39,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_6",
+      "Object": "village_pack/vegetation/oak",
+      "X": 15,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_woodland_shrine/oak_7",
+      "Object": "village_pack/vegetation/oak",
+      "X": 9,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrub_round_1",
+      "Object": "village_pack/vegetation/shrub_round",
+      "X": 33,
+      "Y": 3
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrub_round_2",
+      "Object": "village_pack/vegetation/shrub_round",
+      "X": 15,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrub_round_3",
+      "Object": "village_pack/vegetation/shrub_round",
+      "X": 33,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrub_round_4",
+      "Object": "village_pack/vegetation/shrub_round",
+      "X": 9,
+      "Y": 23
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrub_round_5",
+      "Object": "village_pack/vegetation/shrub_round",
+      "X": 3,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_woodland_shrine/shrub_round_6",
+      "Object": "village_pack/vegetation/shrub_round",
+      "X": 21,
+      "Y": 28
+    },
+    {
+      "Id": "rpg_woodland_shrine/birch_1",
+      "Object": "village_pack/vegetation/birch",
+      "X": 33,
+      "Y": 13,
+      "Variant": "bare"
+    },
+    {
+      "Id": "rpg_woodland_shrine/birch_2",
+      "Object": "village_pack/vegetation/birch",
+      "X": 9,
+      "Y": 18,
+      "Variant": "bare"
+    },
+    {
+      "Id": "rpg_woodland_shrine/birch_3",
+      "Object": "village_pack/vegetation/birch",
+      "X": 3,
+      "Y": 23,
+      "Variant": "bare"
+    },
+    {
+      "Id": "rpg_woodland_shrine/birch_4",
+      "Object": "village_pack/vegetation/birch",
+      "X": 21,
+      "Y": 23,
+      "Variant": "bare"
+    },
+    {
+      "Id": "rpg_woodland_shrine/birch_5",
+      "Object": "village_pack/vegetation/birch",
+      "X": 39,
+      "Y": 23,
+      "Variant": "bare"
+    },
+    {
+      "Id": "rpg_woodland_shrine/birch_6",
+      "Object": "village_pack/vegetation/birch",
+      "X": 15,
+      "Y": 28,
+      "Variant": "bare"
+    },
+    {
+      "Id": "rpg_woodland_shrine/waystone_1",
+      "Object": "village_pack/decor/waystone",
+      "X": 8,
+      "Y": 4
+    },
+    {
+      "Id": "rpg_woodland_shrine/waystone_2",
+      "Object": "village_pack/decor/waystone",
+      "X": 16,
+      "Y": 4
+    },
+    {
+      "Id": "rpg_woodland_shrine/waystone_3",
+      "Object": "village_pack/decor/waystone",
+      "X": 8,
+      "Y": 8
+    },
+    {
+      "Id": "rpg_woodland_shrine/waystone_4",
+      "Object": "village_pack/decor/waystone",
+      "X": 16,
+      "Y": 8
+    }
+  ]
+}

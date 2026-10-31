@@ -1,0 +1,107 @@
+{
+  "Kind": "character",
+  "Items": [
+    {
+      "Id": "rpg_hero",
+      "Charset": "village/hero",
+      "Name": "rpg_plus/character/hero",
+      "Image": "characters/village/hero",
+      "Level": 1,
+      "Point": 1,
+      "Health": 24,
+      "Defence": 0,
+      "Attack": 6,
+      "Actions": [
+        "physics/attack",
+        "physics/defence"
+      ]
+    },
+    {
+      "Id": "rpg_companion",
+      "Name": "rpg_plus/character/companion",
+      "Charset": "village/villager",
+      "Archetype": "classic/rogue",
+      "Level": 1,
+      "Point": 1,
+      "Actions": [
+        "physics/attack",
+        "physics/defence"
+      ]
+    },
+    {
+      "Id": "rpg_slime",
+      "Name": "rpg_plus/character/slime",
+      "Image": "characters/village/slime",
+      "Behaviour": "base",
+      "Level": 1,
+      "Point": 1,
+      "Health": 8,
+      "Defence": 0,
+      "Attack": 2,
+      "Exp": 3,
+      "RecruitmentChance": 0,
+      "Actions": [
+        "physics/attack"
+      ],
+      "Loot": [
+        {
+          "ItemId": "rpg_plus/resin",
+          "MinCount": 1,
+          "MaxCount": 2,
+          "Probability": 100
+        },
+        {
+          "ItemId": "money/coin",
+          "MinCount": 2,
+          "MaxCount": 4,
+          "Probability": 100
+        },
+        {
+          "ItemId": "rpg_plus/mushroom",
+          "MinCount": 1,
+          "MaxCount": 1,
+          "Probability": 25
+        }
+      ]
+    },
+    {
+      "Id": "rpg_wolf",
+      "Name": "rpg_plus/character/wolf",
+      "Image": "characters/village/wolf",
+      "Behaviour": "base",
+      "Level": 2,
+      "Point": 1,
+      "Exp": 12,
+      "RecruitmentChance": 0,
+      "Actions": [
+        "physics/attack",
+        "physics/defence"
+      ],
+      "Stats": {
+        "str": 5,
+        "vit": 5,
+        "agi": 7
+      },
+      "Loot": [
+        {
+          "ItemId": "rpg_plus/wolf_pelt",
+          "MinCount": 2,
+          "MaxCount": 3,
+          "Probability": 100
+        },
+        {
+          "ItemId": "money/coin",
+          "MinCount": 8,
+          "MaxCount": 14,
+          "Probability": 100
+        },
+        {
+          "ItemId": "rpg_plus/amber",
+          "MinCount": 1,
+          "MaxCount": 1,
+          "Probability": 100
+        }
+      ]
+    }
+  ]
+}
