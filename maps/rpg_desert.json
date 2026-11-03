@@ -120,6 +120,74 @@
         "#......................................................................#",
         "#......................................................................#",
         "########################################################################"
+      ],
+      "Events": [
+        {
+          "Id": "desert_to_winter",
+          "X": 0,
+          "Y": 12,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_winter",
+            "X": 38,
+            "Y": 14,
+            "Dir": "Left"
+          }
+        },
+        {
+          "Id": "rpg_plus_enter_desert_house",
+          "X": 49,
+          "Y": 12,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_plus_desert_desert_house",
+            "X": 5,
+            "Y": 8,
+            "Dir": "Up"
+          }
+        },
+        {
+          "Id": "rpg_plus_enter_desert_inn",
+          "X": 62,
+          "Y": 12,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_plus_desert_desert_inn",
+            "X": 5,
+            "Y": 8,
+            "Dir": "Up"
+          }
+        },
+        {
+          "Id": "desert_to_village",
+          "X": 39,
+          "Y": 12,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_village",
+            "X": 1,
+            "Y": 9,
+            "Dir": "Right"
+          }
+        },
+        {
+          "Id": "desert_house_door",
+          "X": 8,
+          "Y": 8,
+          "Trigger": "Use",
+          "Commands": [
+            "ptext \"На двери записка: «Вернусь, когда станет прохладно». Чернила выцвели.\" key=rpg_plus/desert/house"
+          ]
+        },
+        {
+          "Id": "desert_caravan_notice",
+          "X": 21,
+          "Y": 8,
+          "Trigger": "Use",
+          "Commands": [
+            "ptext \"Караван ушёл. Цены остались. Дешевле от этого не стало.\" key=rpg_plus/desert/caravan"
+          ]
+        }
       ]
     }
   ]

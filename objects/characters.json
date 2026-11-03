@@ -1,0 +1,23 @@
+{
+  "Kind": "rpg_object",
+  "Items": [
+    {
+      "Id": "rpg_plus_game/character/rpg_companion",
+      "Form": "actor",
+      "Category": "character",
+      "Charset": "village/villager",
+      "Name": "rpg_plus/character/companion",
+      "Interact": {
+        "Trigger": "Use",
+        "Scenario": "rpg_plus_game/party/rpg_companion"
+      },
+      "States": [
+        {
+          "Id": "joined",
+          "When": "rpg_companion_joined == 1",
+          "Hidden": true
+        }
+      ]
+    }
+  ]
+}

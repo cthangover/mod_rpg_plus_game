@@ -13,7 +13,21 @@
         "Dir": "Up"
       },
       "Ambient": "#e0d2b8",
-      "Legend": {}
+      "Legend": {},
+      "Events": [
+        {
+          "Id": "exit",
+          "X": 6,
+          "Y": 9,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_village",
+            "X": 6,
+            "Y": 7,
+            "Dir": "Down"
+          }
+        }
+      ]
     }
   ]
 }

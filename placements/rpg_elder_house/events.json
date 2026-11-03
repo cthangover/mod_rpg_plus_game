@@ -2,21 +2,6 @@
   "Kind": "rpg_placement",
   "Items": [
     {
-      "Id": "rpg_elder_house/exit",
-      "Object": "village_pack/marker/trigger",
-      "X": 6,
-      "Y": 9,
-      "Interact": {
-        "Trigger": "Step",
-        "Teleport": {
-          "Map": "rpg_village",
-          "X": 6,
-          "Y": 7,
-          "Dir": "Down"
-        }
-      }
-    },
-    {
       "Id": "rpg_elder_house/elder",
       "Object": "village_pack/npc/elder",
       "X": 6,

@@ -64,29 +64,6 @@
         "Trigger": "Use",
         "Scenario": "rpg_plus/woodland/waystone"
       }
-    },
-    {
-      "Id": "rpg_forest/woodland_to_shrine",
-      "Object": "village_pack/marker/trigger",
-      "X": 26,
-      "Y": 8,
-      "Solid": true,
-      "Interact": {
-        "Trigger": "Use",
-        "Teleport": {
-          "Map": "rpg_woodland_shrine",
-          "X": 2,
-          "Y": 11,
-          "Dir": "Right"
-        }
-      },
-      "States": [
-        {
-          "Id": "hidden",
-          "When": "rpg_wolf_dead != 1",
-          "Hidden": true
-        }
-      ]
     }
   ]
 }

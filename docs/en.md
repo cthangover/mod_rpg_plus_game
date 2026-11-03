@@ -4,6 +4,8 @@ RPG Plus is a complete small RPG: a visual-novel prologue where you choose who y
 
 Start it from **Play → RPG Plus → New game**.
 
+Want to make your own game? Follow **Your first game in 10 minutes** in the documentation of **RPG Map Editor** (the mod `rpg_editor`): a mouse-only path from a new mod to your own map, chest, dialog and companion.
+
 ![The crossroads prologue: a signpost at a forest road and the question "Who were you before you came here?" with three answers: a soldier, a mage's apprentice, a wanderer.](assets/prologue.jpg)
 
 ## The story and how to play

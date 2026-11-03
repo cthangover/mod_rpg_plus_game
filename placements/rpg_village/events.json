@@ -2,47 +2,6 @@
   "Kind": "rpg_placement",
   "Items": [
     {
-      "Id": "rpg_village/door_elder",
-      "Object": "village_pack/marker/trigger",
-      "X": 6,
-      "Y": 6,
-      "Interact": {
-        "Trigger": "Step",
-        "Teleport": {
-          "Map": "rpg_elder_house",
-          "X": 6,
-          "Y": 8,
-          "Dir": "Up"
-        }
-      }
-    },
-    {
-      "Id": "rpg_village/door_merchant",
-      "Object": "village_pack/marker/trigger",
-      "X": 21,
-      "Y": 6,
-      "Solid": true,
-      "Interact": {
-        "Trigger": "Use",
-        "Scenario": "rpg_plus/events/locked_door"
-      }
-    },
-    {
-      "Id": "rpg_village/to_forest",
-      "Object": "village_pack/marker/trigger",
-      "X": 31,
-      "Y": 0,
-      "Interact": {
-        "Trigger": "Step",
-        "Teleport": {
-          "Map": "rpg_forest",
-          "X": 1,
-          "Y": 8,
-          "Dir": "Right"
-        }
-      }
-    },
-    {
       "Id": "rpg_village/sign",
       "Object": "village_pack/decor/sign",
       "X": 16,

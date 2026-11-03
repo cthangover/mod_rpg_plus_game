@@ -112,6 +112,46 @@
         "#..........................................................#",
         "#..........................................................#",
         "############################################################"
+      ],
+      "Events": [
+        {
+          "Id": "woodland_to_shrine",
+          "X": 26,
+          "Y": 8,
+          "Solid": true,
+          "Trigger": "Use",
+          "Teleport": {
+            "Map": "rpg_woodland_shrine",
+            "X": 2,
+            "Y": 11,
+            "Dir": "Right"
+          },
+          "When": "!(rpg_wolf_dead != 1)"
+        },
+        {
+          "Id": "rpg_plus_enter_forest_lodge",
+          "X": 36,
+          "Y": 12,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_plus_forest_forest_lodge",
+            "X": 5,
+            "Y": 8,
+            "Dir": "Up"
+          }
+        },
+        {
+          "Id": "to_village",
+          "X": 0,
+          "Y": 8,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_village",
+            "X": 31,
+            "Y": 2,
+            "Dir": "Left"
+          }
+        }
       ]
     }
   ]

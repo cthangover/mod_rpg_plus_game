@@ -25,6 +25,21 @@
         "#..........#",
         "#..........#",
         "#####oo#####"
+      ],
+      "Events": [
+        {
+          "Id": "exit",
+          "X": 5,
+          "Y": 9,
+          "Width": 2,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_desert",
+            "X": 49,
+            "Y": 13,
+            "Dir": "Down"
+          }
+        }
       ]
     }
   ]
