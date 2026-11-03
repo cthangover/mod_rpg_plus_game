@@ -2,21 +2,6 @@
   "Kind": "rpg_placement",
   "Items": [
     {
-      "Id": "rpg_woodland_shrine/shrine_exit",
-      "Object": "village_pack/marker/trigger",
-      "X": 1,
-      "Y": 11,
-      "Interact": {
-        "Trigger": "Step",
-        "Teleport": {
-          "Map": "rpg_forest",
-          "X": 25,
-          "Y": 8,
-          "Dir": "Left"
-        }
-      }
-    },
-    {
       "Id": "rpg_woodland_shrine/shrine_beacon",
       "Object": "village_pack/light/ward_lantern",
       "X": 12,

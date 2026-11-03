@@ -9,7 +9,7 @@
       "Zoom": 2,
       "Spawn": {
         "X": 15,
-        "Y": 14,
+        "Y": 9,
         "Dir": "Up"
       },
       "Atmosphere": "woodland",
@@ -30,31 +30,31 @@
         "ggggggtggggggggggggggtgggggggggtgggggggggggggggggggggggggggggggg",
         "ggggggtggggtttttttttgtgggggggggtgggggggggggggggggggggggggggggggg",
         "ggggggtggggtttttttttgtgggggggggtgggggggggggggggggggggggggggggggg",
-        "ttttttttttttttttttttttttttttttttgggggggggggggggggggggggggggggggg",
-        "gggggggggggtttttttttgggggggggggggggggggggggggggggggggggggggggggg",
-        "gggggggggggtttttttttgggggggggggggggggggggggggggggggggggggggggggg",
-        "gggggggggggggggtggggggggwwwwwgggggggggggffggggggggggffgggggggggg",
-        "gggggggggggggggtgggggggwwwwwwwggggggggggffggggggggggffgggggggggg",
-        "gggggggggggggggtggggggwwwwwwffffffffggggffggggggggggffgggggggggg",
-        "gggggggggggggggtgggggggwwwwwwwggggffggggffggggggggggffgggggggggg",
-        "gggggggggggggggtggggggggwwwwggggggffggggffggggggggggffgggggggggg",
-        "gggggggggggggggtggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffggggffggggggggggffgggggggggg",
-        "ggggggggggggggggggggggggggggggggggffffffffffffffffffffffffgggggg",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+        "ttttttttttttttttttttttttttttttttttgttttttggggggggggggggggggggggg",
+        "gggggggggggtttttttttgggggggggggggtgttttttggggggggggggggggggggggg",
+        "gggggggggggtttttttttgggggggggggggttttttttggggggggggggggggggggggg",
+        "gggggggggggggggtggggggggwwwwwggggttttttttggggggggggggggggggggggg",
+        "gggggggggggggggtgggggggwwwwwwwgggttttttttggggggggggggggggggggggg",
+        "gggggggggggggggtggggggwwwwwwggggggffgggggggggggggggggggggggggggg",
+        "gggggggggggggggtgggggggwwwwwwwggggffgggggggggggggggggggggggggggg",
+        "gggggggggggggggtggggggggwwwwggggggffgggggggggggggggggggggggggggg",
+        "gggggggggggggggtggggggggggggggggggffgggggggggggggggggggggggggggg",
+        "gggggggggggtttttttttggggggggggggggffgggggggggggggggggggggggggggg",
+        "gggggggggggtttttttttggggggggggggggffgggggggggggggggggggggggggggg",
+        "gggggggggggtttttttttggggggggggggggffgggggggggggggggggggggggggggg",
+        "gggggggggggtttttttttggggggggggggggffgggggggggggggggggggggggggggg",
+        "gggggggggggtttttttttggggggggggggggffgggggggggggggggggggggggggggg",
+        "ggggggggggggggggggggggggggggggggggffgggggggggggggggggggggggggggg",
+        "ggggggggggggggggggggggggggggggggggffgggggggggggggggggggggggggggg",
+        "ggggggggggggggggggggggggggggggggggffgggggggggggggggggggggggggggg",
+        "ggggggggggggggggggggggggggggggggggffgggggggggggggggggggggggggggg",
+        "ggggggggggggggggggggggggggggggggggffgggggggggggggggggggggggggggg",
+        "ggggggggggggggggggggggggggggggggggfffffffffffffffggggggggggggggg",
+        "ggggggggggggggggggggggggggggggggggfffffffffffffffggggggggggggggg",
+        "gggggggggggggggggggggggggggggggggggggggggggggggffggggggggggggggg",
+        "gggggggggggggggggggggggggggggggggggggggggggggggffggggggggggggggg",
+        "gggggggggggggggggggggggggggggggggggggggggggggggffffffffggggggggg",
+        "gggggggggggggggggggggggggggggggggggggggggggggggffffffffggggggggg",
         "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
@@ -88,7 +88,7 @@
         "................................................................",
         "................................................................",
         "................................................................",
-        "................................................................",
+        "...........eeeeeeeee............................................",
         "................................................................",
         "................................................................",
         "................................................................",
@@ -109,7 +109,7 @@
         "................................................................"
       ],
       "Collision": [
-        "################################################################",
+        "###############################..###############################",
         "#..............................................................#",
         "#..............................................................#",
         "#..............................................................#",
@@ -120,7 +120,7 @@
         "#..............................................................#",
         "o..............................................................#",
         "#..............................................................#",
-        "#.......................................o...........o..........#",
+        "#...................................................o..........#",
         "#..............................................................#",
         "#..............................................................#",
         "#..............................................................#",
@@ -151,6 +151,76 @@
         "#..............................................................#",
         "#..............................................................#",
         "################################################################"
+      ],
+      "Events": [
+        {
+          "Id": "rpg_plus_enter_wood_townhouse",
+          "X": 36,
+          "Y": 11,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_plus_village_wood_townhouse",
+            "X": 5,
+            "Y": 8,
+            "Dir": "Up"
+          }
+        },
+        {
+          "Id": "rpg_plus_enter_forest_lodge",
+          "X": 52,
+          "Y": 32,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_plus_village_forest_lodge",
+            "X": 5,
+            "Y": 8,
+            "Dir": "Up"
+          }
+        },
+        {
+          "Id": "door_elder",
+          "X": 6,
+          "Y": 6,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_elder_house",
+            "X": 6,
+            "Y": 7,
+            "Dir": "Up"
+          }
+        },
+        {
+          "Id": "door_merchant",
+          "X": 21,
+          "Y": 6,
+          "Solid": true,
+          "Trigger": "Use",
+          "Scenario": "rpg_plus/events/locked_door"
+        },
+        {
+          "Id": "to_forest",
+          "X": 31,
+          "Y": 0,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_forest",
+            "X": 1,
+            "Y": 8,
+            "Dir": "Right"
+          }
+        },
+        {
+          "Id": "village_to_desert",
+          "X": 0,
+          "Y": 9,
+          "Trigger": "Step",
+          "Teleport": {
+            "Map": "rpg_desert",
+            "X": 38,
+            "Y": 12,
+            "Dir": "Left"
+          }
+        }
       ]
     }
   ]

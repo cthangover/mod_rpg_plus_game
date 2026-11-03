@@ -4,8 +4,8 @@
     {
       "Id": "rpg_village/woodland_herbalist",
       "Object": "village_pack/npc/villager",
-      "X": 3,
-      "Y": 12,
+      "X": 14,
+      "Y": 21,
       "Facing": "Right",
       "Interact": {
         "Trigger": "Use",

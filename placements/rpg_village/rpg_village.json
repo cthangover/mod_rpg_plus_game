@@ -28,8 +28,8 @@
     {
       "Id": "rpg_village/oak_small_5",
       "Object": "village_pack/vegetation/oak_small",
-      "X": 0,
-      "Y": 3
+      "X": 6,
+      "Y": 18
     },
     {
       "Id": "rpg_village/oak_small_6",
@@ -50,46 +50,16 @@
       "Y": 9
     },
     {
-      "Id": "rpg_village/oak_small_9",
-      "Object": "village_pack/vegetation/oak_small",
-      "X": 29,
-      "Y": 10
-    },
-    {
       "Id": "rpg_village/oak_small_10",
       "Object": "village_pack/vegetation/oak_small",
       "X": 29,
-      "Y": 13
+      "Y": 15
     },
     {
       "Id": "rpg_village/oak_small_11",
       "Object": "village_pack/vegetation/oak_small",
-      "X": 0,
-      "Y": 14
-    },
-    {
-      "Id": "rpg_village/oak_small_12",
-      "Object": "village_pack/vegetation/oak_small",
-      "X": 12,
-      "Y": 15
-    },
-    {
-      "Id": "rpg_village/oak_small_13",
-      "Object": "village_pack/vegetation/oak_small",
-      "X": 15,
-      "Y": 15
-    },
-    {
-      "Id": "rpg_village/oak_small_14",
-      "Object": "village_pack/vegetation/oak_small",
-      "X": 21,
-      "Y": 15
-    },
-    {
-      "Id": "rpg_village/oak_small_15",
-      "Object": "village_pack/vegetation/oak_small",
-      "X": 24,
-      "Y": 15
+      "X": 22,
+      "Y": 25
     },
     {
       "Id": "rpg_village/cottage_1",
@@ -112,38 +82,38 @@
     {
       "Id": "rpg_village/street_lamp_3",
       "Object": "village_pack/light/street_lamp",
-      "X": 42,
-      "Y": 12
+      "X": 40,
+      "Y": 11
     },
     {
       "Id": "rpg_village/wood_townhouse_1",
       "Object": "village_pack/building/wood_townhouse",
-      "X": 37,
+      "X": 34,
       "Y": 5
     },
     {
       "Id": "rpg_village/forest_lodge_1",
       "Object": "village_pack/building/forest_lodge",
       "X": 50,
-      "Y": 5
+      "Y": 26
     },
     {
       "Id": "rpg_village/log_pile_1",
       "Object": "village_pack/decor/log_pile",
-      "X": 51,
-      "Y": 19
+      "X": 54,
+      "Y": 33
     },
     {
       "Id": "rpg_village/market_stall_1",
       "Object": "village_pack/decor/market_stall",
-      "X": 39,
+      "X": 16,
       "Y": 18
     },
     {
       "Id": "rpg_village/table_1",
       "Object": "village_pack/furniture/table",
-      "X": 46,
-      "Y": 24
+      "X": 56,
+      "Y": 32
     },
     {
       "Id": "rpg_village/oak_1",
@@ -160,20 +130,20 @@
     {
       "Id": "rpg_village/oak_3",
       "Object": "village_pack/vegetation/oak",
-      "X": 15,
+      "X": 18,
       "Y": 23
     },
     {
       "Id": "rpg_village/oak_4",
       "Object": "village_pack/vegetation/oak",
-      "X": 9,
-      "Y": 28
+      "X": 0,
+      "Y": 2
     },
     {
       "Id": "rpg_village/oak_5",
       "Object": "village_pack/vegetation/oak",
-      "X": 27,
-      "Y": 28
+      "X": 30,
+      "Y": 23
     },
     {
       "Id": "rpg_village/oak_6",
@@ -184,20 +154,20 @@
     {
       "Id": "rpg_village/oak_7",
       "Object": "village_pack/vegetation/oak",
-      "X": 21,
-      "Y": 33
+      "X": 19,
+      "Y": 12
     },
     {
       "Id": "rpg_village/oak_8",
       "Object": "village_pack/vegetation/oak",
-      "X": 39,
-      "Y": 33
+      "X": 42,
+      "Y": 30
     },
     {
       "Id": "rpg_village/oak_9",
       "Object": "village_pack/vegetation/oak",
-      "X": 57,
-      "Y": 33
+      "X": 59,
+      "Y": 34
     },
     {
       "Id": "rpg_village/birch_1",
@@ -215,25 +185,25 @@
       "Id": "rpg_village/birch_3",
       "Object": "village_pack/vegetation/birch",
       "X": 21,
-      "Y": 23
+      "Y": 19
     },
     {
       "Id": "rpg_village/birch_4",
       "Object": "village_pack/vegetation/birch",
-      "X": 57,
-      "Y": 23
+      "X": 59,
+      "Y": 27
     },
     {
       "Id": "rpg_village/birch_5",
       "Object": "village_pack/vegetation/birch",
-      "X": 15,
-      "Y": 28
+      "X": 16,
+      "Y": 26
     },
     {
       "Id": "rpg_village/birch_6",
       "Object": "village_pack/vegetation/birch",
-      "X": 9,
-      "Y": 33
+      "X": 11,
+      "Y": 14
     },
     {
       "Id": "rpg_village/birch_7",
@@ -244,8 +214,8 @@
     {
       "Id": "rpg_village/birch_8",
       "Object": "village_pack/vegetation/birch",
-      "X": 45,
-      "Y": 33
+      "X": 47,
+      "Y": 35
     },
     {
       "Id": "rpg_village/shrub_round_1",
@@ -274,8 +244,8 @@
     {
       "Id": "rpg_village/shrub_round_5",
       "Object": "village_pack/vegetation/shrub_round",
-      "X": 21,
-      "Y": 28
+      "X": 20,
+      "Y": 27
     },
     {
       "Id": "rpg_village/shrub_round_6",
@@ -286,14 +256,14 @@
     {
       "Id": "rpg_village/shrub_round_7",
       "Object": "village_pack/vegetation/shrub_round",
-      "X": 33,
-      "Y": 33
+      "X": 38,
+      "Y": 25
     },
     {
       "Id": "rpg_village/shrub_round_8",
       "Object": "village_pack/vegetation/shrub_round",
       "X": 51,
-      "Y": 33
+      "Y": 35
     },
     {
       "Id": "rpg_village/bush_1",
@@ -320,34 +290,10 @@
       "Y": 12
     },
     {
-      "Id": "rpg_village/bush_4",
-      "Object": "village_pack/vegetation/bush",
-      "X": 3,
-      "Y": 15
-    },
-    {
       "Id": "rpg_village/bush_5",
       "Object": "village_pack/vegetation/bush",
-      "X": 10,
-      "Y": 15
-    },
-    {
-      "Id": "rpg_village/tall_grass_1",
-      "Object": "village_pack/vegetation/tall_grass",
-      "X": 20,
-      "Y": 15
-    },
-    {
-      "Id": "rpg_village/tall_grass_2",
-      "Object": "village_pack/vegetation/tall_grass",
-      "X": 4,
-      "Y": 16
-    },
-    {
-      "Id": "rpg_village/tall_grass_3",
-      "Object": "village_pack/vegetation/tall_grass",
-      "X": 5,
-      "Y": 16
+      "X": 21,
+      "Y": 11
     },
     {
       "Id": "rpg_village/cottage_2",
@@ -928,6 +874,30 @@
       },
       "Light": null,
       "Lights": null
+    },
+    {
+      "Id": "rpg_village/new_supply_barrel",
+      "Object": "rpg_plus/container/supply_barrel",
+      "X": 16,
+      "Y": 19
+    },
+    {
+      "Id": "rpg_village/new_supply_barrel_2",
+      "Object": "rpg_plus/container/supply_barrel",
+      "X": 11,
+      "Y": 21
+    },
+    {
+      "Id": "rpg_village/new_street_lamp",
+      "Object": "village_pack/light/street_lamp",
+      "X": 12,
+      "Y": 18
+    },
+    {
+      "Id": "rpg_village/new_street_lamp_2",
+      "Object": "village_pack/light/street_lamp",
+      "X": 33,
+      "Y": 11
     }
   ]
 }

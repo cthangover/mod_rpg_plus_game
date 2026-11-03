@@ -2,21 +2,6 @@
   "Kind": "rpg_placement",
   "Items": [
     {
-      "Id": "rpg_forest/to_village",
-      "Object": "village_pack/marker/trigger",
-      "X": 0,
-      "Y": 8,
-      "Interact": {
-        "Trigger": "Step",
-        "Teleport": {
-          "Map": "rpg_village",
-          "X": 30,
-          "Y": 9,
-          "Dir": "Left"
-        }
-      }
-    },
-    {
       "Id": "rpg_forest/wolf_boss",
       "Object": "village_pack/creature/wolf",
       "X": 25,

@@ -157,7 +157,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                         Check(Find(LostAmber) is { Visible: false }, "recovered amber cannot be picked twice");
                         Bag.Add("rpg_plus/mushroom", 1);
                         Bag.Add("rpg_plus/branches", 2);
-                        Go("rpg_village", 2, 12, RpgDirection.Right); Next(); return;
+                        Go("rpg_village", 13, 21, RpgDirection.Right); Next(); return;
                     }
                     Check(Flag("rpg_wolf_dead") == "1", "wolf victory changes the world");
                     Check(Bag.CheckCount("rpg_plus/amber") == 1, "wolf drops the guaranteed quest amber");
@@ -189,7 +189,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Tap(Key.Escape); Next(); return;
                 case 15:
                     if (CraftWindow() != null) return;
-                    View.PlacePlayer(2, 12, RpgDirection.Right);
+                    View.PlacePlayer(13, 21, RpgDirection.Right);
                     choices.Enqueue(0);
                     Tap(Key.E); Next(); return;
                 case 16:
@@ -202,7 +202,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                 case 18:
                     Check(Flag("rpg_courier_found") == "1", "courier provides a note");
                     Check(Quest("courier").Data.Status == 1, "courier journal points back to the herbalist");
-                    Go("rpg_village", 2, 12, RpgDirection.Right); Next(); return;
+                    Go("rpg_village", 13, 21, RpgDirection.Right); Next(); return;
                 case 19:
                     if (View?.Map.ID != "rpg_village") return;
                     Tap(Key.E); Next(); return;

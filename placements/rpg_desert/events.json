@@ -2,21 +2,6 @@
   "Kind": "rpg_placement",
   "Items": [
     {
-      "Id": "rpg_desert/desert_to_village",
-      "Object": "village_pack/marker/trigger",
-      "X": 39,
-      "Y": 12,
-      "Interact": {
-        "Trigger": "Step",
-        "Teleport": {
-          "Map": "rpg_village",
-          "X": 1,
-          "Y": 9,
-          "Dir": "Right"
-        }
-      }
-    },
-    {
       "Id": "rpg_desert/desert_barrel_supply",
       "Object": "rpg_plus/container/loot_barrel",
       "X": 17,
@@ -49,30 +34,6 @@
       "Object": "rpg_plus/container/loot_barrel",
       "X": 10,
       "Y": 20
-    },
-    {
-      "Id": "rpg_desert/desert_house_door",
-      "Object": "village_pack/marker/trigger",
-      "X": 8,
-      "Y": 8,
-      "Interact": {
-        "Trigger": "Use",
-        "Commands": [
-          "ptext \"На двери записка: «Вернусь, когда станет прохладно». Чернила выцвели.\" key=rpg_plus/desert/house"
-        ]
-      }
-    },
-    {
-      "Id": "rpg_desert/desert_caravan_notice",
-      "Object": "village_pack/marker/trigger",
-      "X": 21,
-      "Y": 8,
-      "Interact": {
-        "Trigger": "Use",
-        "Commands": [
-          "ptext \"Караван ушёл. Цены остались. Дешевле от этого не стало.\" key=rpg_plus/desert/caravan"
-        ]
-      }
     },
     {
       "Id": "rpg_desert/desert_scorpion_1",
