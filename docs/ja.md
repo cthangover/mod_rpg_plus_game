@@ -63,7 +63,7 @@ RPG Plus の正体はコレクション **RPG Plus** です。そのブロック
 タイルレンダラー     tile_topdown_base, tile_isometric_base
 ```
 
-コレクションの設定:`battle.core` は `ff_battle`、判定は `d20` をロール、ヒーローのマップスプライトは `village/hero`、マップはトップダウン描画。**Mods & Collections → コレクション → RPG Plus → 構成を編集** から変えられます。
+コレクション設定は `battle.core=ff_battle`、`checks.dice=d20`、`stats.player=rpg_hero`、`tile.renderer=topdown` で、ゲーム構成から変更します。歩行画像 `village/hero` はヒーローの `Charset` で指定し、キャラクターエディタで変更します。
 
 ## 作者向け:コードなしで変える
 

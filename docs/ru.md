@@ -65,7 +65,7 @@ RPG Plus — это коллекция **RPG Plus**. Её блоки:
 Тайловый рендер       tile_topdown_base, tile_isometric_base
 ```
 
-Настройки коллекции: `battle.core` — `ff_battle`, проверки бросают `d20`, спрайт героя на карте — `village/hero`, карты рисуются сверху. Меняются в **Mods & Collections → Коллекции → RPG Plus → Изменить схему**.
+Настройки коллекции: `battle.core=ff_battle`, `checks.dice=d20`, `stats.player=rpg_hero`, `tile.renderer=topdown`. Они меняются в схеме игры. Лист ходьбы `village/hero` задаёт `Charset` персонажа-героя; меняйте его в редакторе персонажей.
 
 ## Авторам: меняйте без кода
 

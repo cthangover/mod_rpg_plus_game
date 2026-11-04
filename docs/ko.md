@@ -63,7 +63,7 @@ RPG Plus의 정체는 컬렉션 **RPG Plus**입니다. 그 블록:
 타일 렌더러          tile_topdown_base, tile_isometric_base
 ```
 
-컬렉션 설정: `battle.core`는 `ff_battle`, 판정은 `d20`을 굴리고, 영웅의 맵 스프라이트는 `village/hero`, 맵은 탑다운으로 그려집니다. **Mods & Collections → 컬렉션 → RPG Plus → 구성 편집**에서 바꿀 수 있습니다.
+컬렉션 설정은 `battle.core=ff_battle`, `checks.dice=d20`, `stats.player=rpg_hero`, `tile.renderer=topdown`이며 게임 구성에서 바꿉니다. 걷기 시트 `village/hero`는 영웅 캐릭터의 `Charset`이며 캐릭터 편집기에서 바꿉니다.
 
 ## 모드 작성자를 위해: 코드 없이 바꾸기
 

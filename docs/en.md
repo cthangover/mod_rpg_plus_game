@@ -65,7 +65,7 @@ Data editors          schema_tools, items_editor, characters_editor (optional)
 Tile renderer         tile_topdown_base, tile_isometric_base
 ```
 
-Settings of the collection: `battle.core` is `ff_battle`, checks roll `d20`, the hero's map sprite is `village/hero`, maps are drawn top-down. Change them in **Mods & Collections → Collections → RPG Plus → Edit scheme**.
+Collection settings choose `battle.core=ff_battle`, `checks.dice=d20`, `stats.player=rpg_hero` and `tile.renderer=topdown`. Change these in the game’s scheme. The walking sheet `village/hero` belongs to the hero’s character `Charset`, edited with Characters Editor.
 
 ## For authors: change it without code
 

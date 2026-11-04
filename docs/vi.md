@@ -63,7 +63,7 @@ Trình soạn dữ liệu   schema_tools, items_editor, characters_editor (tùy 
 Bộ dựng ô tile       tile_topdown_base, tile_isometric_base
 ```
 
-Cấu hình của bộ sưu tập: `battle.core` là `ff_battle`, phép kiểm gieo `d20`, hình anh hùng trên bản đồ là `village/hero`, bản đồ vẽ nhìn từ trên xuống. Đổi trong **Mods & Collections → Bộ sưu tập → RPG Plus → Sửa sơ đồ**.
+Bộ sưu tập đặt `battle.core=ff_battle`, `checks.dice=d20`, `stats.player=rpg_hero`, `tile.renderer=topdown`; đổi trong sơ đồ game. Sheet `village/hero` nằm ở `Charset` của nhân vật anh hùng, sửa bằng Characters Editor.
 
 ## Dành cho tác giả: đổi nội dung không cần mã
 

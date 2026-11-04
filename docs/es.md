@@ -63,7 +63,7 @@ Editores de datos    schema_tools, items_editor, characters_editor (opcional)
 Render de tiles      tile_topdown_base, tile_isometric_base
 ```
 
-Ajustes de la colección: `battle.core` es `ff_battle`, las pruebas tiran `d20`, el sprite del héroe en el mapa es `village/hero`, los mapas se dibujan de arriba a abajo. Se cambian en **Mods & Collections → Colecciones → RPG Plus → Editar esquema**.
+La colección define `battle.core=ff_battle`, `checks.dice=d20`, `stats.player=rpg_hero` y `tile.renderer=topdown`; se cambian en el esquema del juego. La hoja `village/hero` está en `Charset` del personaje y se cambia en Characters Editor.
 
 ## Para autores: cámbialo sin código
 

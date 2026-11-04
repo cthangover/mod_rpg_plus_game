@@ -63,7 +63,7 @@ RPG Plus 就是合集 **RPG Plus**。它的分组：
 图块渲染器           tile_topdown_base, tile_isometric_base
 ```
 
-合集的设置：`battle.core` 为 `ff_battle`，检定掷 `d20`，英雄的地图贴图为 `village/hero`，地图以俯视方式绘制。可在 **Mods & Collections → 合集 → RPG Plus → 编辑结构** 中修改。
+合集设置为 `battle.core=ff_battle`、`checks.dice=d20`、`stats.player=rpg_hero`、`tile.renderer=topdown`，在游戏结构中修改。行走图 `village/hero` 来自英雄角色的 `Charset`，在角色编辑器中修改。
 
 ## 给模组作者：不改代码就能改内容
 
