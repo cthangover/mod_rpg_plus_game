@@ -36,7 +36,7 @@
       "Facing": "Left",
       "Interact": {
         "Trigger": "Use",
-        "Scenario": "rpg_plus/events/merchant"
+        "Scenario": "rpg_plus/events/rpg_plus_merchant"
       }
     }
   ]
