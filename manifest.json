@@ -1,7 +1,7 @@
 {
   "id": "rpg_plus_game",
   "name": "RPG Plus",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "ct",
   "description": "A complete small RPG: a prologue that picks the class, a village and forest mystery, crafting, trade, a desert and turn-based battles — data and scenarios only.",
   "category": "story",
