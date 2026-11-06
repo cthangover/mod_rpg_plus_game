@@ -2,5 +2,5 @@
   "name": "Desert and supply barrel test",
   "description": "West/east transitions, one-time barrel loot, save/load and both desert monster battles.",
   "sources": ["src/*.cs"],
-  "depends": ["rpg_plus_game>=1", "ff_battle>=1"]
+  "depends": ["rpg_plus_game>=0.1.0", "ff_battle>=1"]
 }
