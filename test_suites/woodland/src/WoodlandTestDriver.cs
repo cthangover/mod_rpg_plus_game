@@ -35,7 +35,6 @@ namespace Cthangover.Mods.RpgPlus.Tests
         private readonly bool pact;
         private readonly string shots;
         private int step;
-        private int ticks;
         private int passed;
         private int failed;
         private int resinBefore;
@@ -45,7 +44,11 @@ namespace Cthangover.Mods.RpgPlus.Tests
         private long shotTime;
         private double elapsed;
         private BattleSceneContext testedBattle;
-        private ulong nextAttack;
+        private ulong attackReadyFrame;
+        private ulong stageReadyFrame;
+        private ulong stageWaitStarted;
+        private int waitingStep = -1;
+        private readonly double tickSeconds;
         private string victoryShot;
         private bool recoveringAmber;
         private const string SaveSlot = "slot_9917";
@@ -67,8 +70,9 @@ namespace Cthangover.Mods.RpgPlus.Tests
         {
             this.pact = pact;
             this.shots = shots;
+            tickSeconds = string.IsNullOrEmpty(shots) ? 0.05 : 0.1;
             Name = "WoodlandTestDriver";
-            var timer = new Timer { WaitTime = 0.1, Autostart = true };
+            var timer = new Timer { WaitTime = tickSeconds, Autostart = true };
             timer.Timeout += Tick;
             AddChild(timer);
         }
@@ -77,7 +81,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
         {
             if (step < 0)
                 return;
-            elapsed += 0.1;
+            elapsed += tickSeconds;
             if (elapsed > 180)
             {
                 Check(false, $"timeout at woodland step {step}");
@@ -106,7 +110,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
             }
             if (AdvanceDialog() || GodotSceneService.IsTransitioning)
                 return;
-            if (++ticks < 3)
+            if (!StageIsReady())
                 return;
             switch (step)
             {
@@ -168,7 +172,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Check(Find(LostAmber) is { Visible: true }, "missing quest amber remains recoverable after an old wolf victory");
                     View.PlacePlayer(24, 8, RpgDirection.Right);
                     recoveringAmber = true;
-                    Tap(Key.E); ticks = 0; return;
+                    Tap(Key.E); stageReadyFrame = 0; return;
                 case 11:
                     if (View?.Map.ID != "rpg_village") return;
                     Tap(Key.E); Next(); return;
@@ -293,14 +297,57 @@ namespace Cthangover.Mods.RpgPlus.Tests
             return true;
         }
 
+        // Stage state, rather than a timer budget, releases the unchanged assertions.
+        private bool StageIsReady()
+        {
+            var now = Time.GetTicksMsec();
+            if (waitingStep != step)
+            {
+                waitingStep = step;
+                stageWaitStarted = now;
+                stageReadyFrame = 0;
+            }
+            if (now - stageWaitStarted > 30000)
+                throw new TimeoutException($"readiness at stage {step}, map '{View?.Map.ID}'");
+            if (GodotSceneService.IsTransitioning) { stageReadyFrame = 0; return false; }
+            var expected = step switch
+            {
+                1 or 11 or 12 or 15 or 16 or 19 or 20 or 23 or 27 => "rpg_village",
+                2 or 3 or 21 or 22 or 33 or 34 or 35 => "rpg_elder_house",
+                4 or 7 or 10 or 17 or 18 or 28 => "rpg_forest",
+                29 or 30 or 32 => "rpg_woodland_shrine",
+                _ => null
+            };
+            var ready = expected == null
+                ? GetTree().CurrentScene is BattleSceneContext || View?.Map != null
+                : View?.Map.ID == expected && !View.Player.IsMoving;
+            if (step == 31) ready = RpgWorldHost.Current == null;
+            if (step is 13 or 24) ready = CraftWindow() != null;
+            if (step is 15 or 27) ready &= CraftWindow() == null;
+            if (!ready) { stageReadyFrame = 0; return false; }
+            if (stageReadyFrame == 0) stageReadyFrame = Engine.GetProcessFrames();
+            return Engine.GetProcessFrames() - stageReadyFrame >= 2;
+        }
+
         private bool Win(params string[] ids)
         {
             if (GetTree().CurrentScene is not BattleSceneContext battle)
                 return false;
             if (battle.IsDestroyed)
                 return true;
-            if (battle.ActiveBattleCore is not IBattleAutoPlayable auto || !auto.IsWaitingForPlayerInput || Time.GetTicksMsec() < nextAttack)
+            if (battle.ActiveBattleCore is not IBattleAutoPlayable auto || !auto.IsWaitingForPlayerInput)
+            {
+                attackReadyFrame = 0;
                 return false;
+            }
+            var controller = battle.FindChild("FFBattleController", true, false) as FFBattleController;
+            if (controller == null || controller.State is not (FFBattleState.Idle or FFBattleState.MenuOpen))
+            {
+                attackReadyFrame = 0;
+                return false;
+            }
+            if (attackReadyFrame == 0) attackReadyFrame = Engine.GetProcessFrames();
+            if (Engine.GetProcessFrames() - attackReadyFrame < 2) return false;
             var enemies = battle.FindChild("FFEnemyPanel", true, false) as FFEnemyPanel;
             var players = battle.FindChild("FFPlayerPanel", true, false) as FFPlayerPanel;
             var menu = battle.FindChildren("*", "", true, false).OfType<FFMenuPanel>().FirstOrDefault();
@@ -326,7 +373,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
             menu.SelectedIndex = menu.Entries.FindIndex(e => e.Data is Cthangover.Core.Characters.ActionCharacter action && action.Type == Cthangover.Core.Characters.ActionCharacterType.ToEnemy);
             menu.ConfirmSelection();
             Click(target);
-            nextAttack = Time.GetTicksMsec() + 1600;
+            attackReadyFrame = 0;
             return false;
         }
 
@@ -372,7 +419,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
             Input.ParseInputEvent(new InputEventKey { PhysicalKeycode = key, Keycode = key, Pressed = false });
         }
 
-        private void Next() { step++; ticks = 0; }
+        private void Next() { step++; stageReadyFrame = 0; }
 
         /// <summary>
         /// v2 check of the map's solid objects (trees, walls, altars): every footprint cell the
@@ -413,7 +460,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                 shotTime = time.Tick;
                 time.SetTime(shotTime - shotTime % (24 * 60) + 12 * 60);
                 villageShotPhase = 1;
-                ticks = 0;
+                stageReadyFrame = 0;
                 return false;
             }
             if (villageShotPhase == 1)

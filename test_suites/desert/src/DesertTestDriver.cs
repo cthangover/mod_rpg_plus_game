@@ -29,20 +29,26 @@ namespace Cthangover.Mods.RpgPlus.Tests
         private const string VillageBarrel = "rpg_village/supply_rpg_village_19_11";
         private readonly Queue<int> choices = new(new[] { 0, 1 });
         private readonly string shots;
-        private int step, ticks, passed, failed, coins, branches, elixirs, stones, resin;
+        private int step, passed, failed, coins, branches, elixirs, stones, resin;
         private double elapsed;
-        private ulong nextAttack;
+        private ulong attackReadyFrame;
+        private ulong stageReadyFrame;
+        private ulong stageWaitStarted;
+        private int waitingStep = -1;
+        private readonly double tickSeconds;
         private BattleSceneContext testedBattle;
         private Key? releaseKey;
         private static RpgWorldView View => RpgWorldHost.Current?.View;
         private static DialogBox Box => RpgInput.FindDialogBox();
         private static IInventory Bag => GameData.Instance.Runtime.Inventory;
 
+        /// <summary>Waits on map/UI readiness; screenshot runs keep their normal input polling rate.</summary>
         public DesertTestDriver(string shots)
         {
             this.shots = shots;
+            tickSeconds = string.IsNullOrEmpty(shots) ? 0.05 : 0.1;
             Name = "DesertTestDriver";
-            var timer = new Timer { WaitTime = 0.1, Autostart = true };
+            var timer = new Timer { WaitTime = tickSeconds, Autostart = true };
             timer.Timeout += Tick;
             AddChild(timer);
         }
@@ -56,7 +62,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                 Input.ParseInputEvent(new InputEventKey { PhysicalKeycode = key, Keycode = key, Pressed = false });
                 releaseKey = null;
             }
-            elapsed += 0.1;
+            elapsed += tickSeconds;
             if (elapsed > 180) { Check(false, $"timeout at step {step}"); Finish(); return; }
             try { RunStep(); }
             catch (Exception ex) { Check(false, ex.ToString()); Finish(); }
@@ -72,7 +78,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                 else Box.NextAction();
                 return;
             }
-            if (GodotSceneService.IsTransitioning || ++ticks < 3) return;
+            if (!StageIsReady()) return;
             switch (step)
             {
                 case 0:
@@ -108,11 +114,11 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Check(View.Map.Legend["o"] == "village_pack/ground/oasis_silt" && View.Map.Legend["e"] == "village_pack/ground/desert_path", "silt and the path are separate ground materials");
                     Check(!View.CanEnter(new Vector2I(25, 24)), "oasis water blocks walking");
                     Check(View.CanEnter(new Vector2I(20, 24)) && View.CanEnter(new Vector2I(21, 10)), "silt bank and sandy trail are walkable");
-                    View.PlacePlayer(25, 20, RpgDirection.Down); step = 40; ticks = 0; return;
+                    View.PlacePlayer(25, 20, RpgDirection.Down); step = 40; stageReadyFrame = 0; return;
                 case 40:
                     Shot("desert_oasis");
                     coins = Bag.CheckCount("money/coin"); elixirs = Bag.CheckCount("rpg_plus/elixir");
-                    View.PlacePlayer(17, 9, RpgDirection.Up); Check(View.Interact(), "desert supply barrel opens"); step = 5; ticks = 0; return;
+                    View.PlacePlayer(17, 9, RpgDirection.Up); Check(View.Interact(), "desert supply barrel opens"); step = 5; stageReadyFrame = 0; return;
                 case 5:
                     Check(Bag.CheckCount("money/coin") == coins + 3 && Bag.CheckCount("rpg_plus/elixir") == elixirs + 1, "desert barrel grants coins and an elixir");
                     View.Interact(); Next(); return;
@@ -160,11 +166,47 @@ namespace Cthangover.Mods.RpgPlus.Tests
             }
         }
 
+        // Stage state, rather than a timer budget, releases the unchanged assertions.
+        private bool StageIsReady()
+        {
+            var now = Time.GetTicksMsec();
+            if (waitingStep != step)
+            {
+                waitingStep = step;
+                stageWaitStarted = now;
+                stageReadyFrame = 0;
+            }
+            if (now - stageWaitStarted > 30000)
+                throw new TimeoutException($"readiness at stage {step}, map '{View?.Map.ID}'");
+            if (GodotSceneService.IsTransitioning) { stageReadyFrame = 0; return false; }
+            var expected = step switch
+            {
+                0 or 1 or 2 or 3 or 14 => "rpg_village",
+                4 or 40 or 5 or 6 or 9 or 12 or 13 => "rpg_desert",
+                _ => null
+            };
+            var ready = expected == null
+                ? GetTree().CurrentScene is BattleSceneContext || View?.Map != null
+                : View?.Map.ID == expected && !View.Player.IsMoving;
+
+            if (!ready) { stageReadyFrame = 0; return false; }
+            if (stageReadyFrame == 0) stageReadyFrame = Engine.GetProcessFrames();
+            return Engine.GetProcessFrames() - stageReadyFrame >= 2;
+        }
+
         private bool Win(string id)
         {
             if (GetTree().CurrentScene is not BattleSceneContext battle) return false;
             if (battle.IsDestroyed) return true;
-            if (battle.ActiveBattleCore is not IBattleAutoPlayable auto || !auto.IsWaitingForPlayerInput || Time.GetTicksMsec() < nextAttack) return false;
+            if (battle.ActiveBattleCore is not IBattleAutoPlayable auto || !auto.IsWaitingForPlayerInput) { attackReadyFrame = 0; return false; }
+            var controller = battle.FindChild("FFBattleController", true, false) as FFBattleController;
+            if (controller == null || controller.State is not (FFBattleState.Idle or FFBattleState.MenuOpen))
+            {
+                attackReadyFrame = 0;
+                return false;
+            }
+            if (attackReadyFrame == 0) attackReadyFrame = Engine.GetProcessFrames();
+            if (Engine.GetProcessFrames() - attackReadyFrame < 2) return false;
             var enemies = battle.FindChild("FFEnemyPanel", true, false) as FFEnemyPanel;
             var players = battle.FindChild("FFPlayerPanel", true, false) as FFPlayerPanel;
             var menu = battle.FindChildren("*", "", true, false).OfType<FFMenuPanel>().FirstOrDefault();
@@ -182,7 +224,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
             Click(player);
             menu.SelectedIndex = menu.Entries.FindIndex(e => e.Key == "attack"); menu.ConfirmSelection();
             menu.SelectedIndex = menu.Entries.FindIndex(e => e.Data is Cthangover.Core.Characters.ActionCharacter action && action.Type == Cthangover.Core.Characters.ActionCharacterType.ToEnemy);
-            menu.ConfirmSelection(); Click(target); nextAttack = Time.GetTicksMsec() + 1600;
+            menu.ConfirmSelection(); Click(target); attackReadyFrame = 0;
             return false;
         }
 
@@ -205,7 +247,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
             DirAccess.MakeDirRecursiveAbsolute(shots);
             ViewportCapture.SavePng(GetViewport(), shots.TrimEnd('/') + "/" + name + ".png");
         }
-        private void Next() { step++; ticks = 0; }
+        private void Next() { step++; stageReadyFrame = 0; }
         private void Check(bool ok, string message)
         {
             if (ok) passed++; else failed++;
