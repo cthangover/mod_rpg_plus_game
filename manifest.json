@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "ct",
   "description": "A complete small RPG: a prologue that picks the class, a village and forest mystery, crafting, trade, a desert and turn-based battles — data and scenarios only.",
-  "category": "story",
+  "categories": ["story"],
   "depends": [
     "classic_rpg_pack>=0.1.0",
     "stat_checks>=0.1.0",
