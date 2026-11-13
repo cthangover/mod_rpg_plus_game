@@ -32,6 +32,9 @@ namespace Cthangover.Mods.RpgPlus.Tests
     /// </summary>
     public partial class RpgPlusTestDriver : Node
     {
+        private int readinessToken = int.MinValue;
+        private ulong readinessStarted;
+        private ulong readinessFrame;
         private const float TickSeconds = 0.1f;
 
         // The battle opens with an intro animation (the backdrop zooms in): shots wait it out.
@@ -111,6 +114,23 @@ namespace Cthangover.Mods.RpgPlus.Tests
             }
         }
 
+        // Deferred UI/scene work must finish before the original assertions run.
+        private bool WaitForReadyFrames(int token, bool ready, double timeoutSeconds = 30)
+        {
+            var now = global::Godot.Time.GetTicksMsec();
+            if (readinessToken != token)
+            {
+                readinessToken = token;
+                readinessStarted = now;
+                readinessFrame = 0;
+            }
+            if (now - readinessStarted > timeoutSeconds * 1000)
+                throw new global::System.TimeoutException($"readiness at step {token}: scene/UI did not become ready");
+            if (!ready) { readinessFrame = 0; return false; }
+            if (readinessFrame == 0) readinessFrame = global::Godot.Engine.GetProcessFrames();
+            return global::Godot.Engine.GetProcessFrames() - readinessFrame >= 2;
+        }
+
         private void RunStep()
         {
             switch (step)
@@ -128,7 +148,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     RememberCheck();
                     if (AdvanceDialog())
                         return;
-                    if (View?.Map?.ID != Village || GodotSceneService.IsTransitioning || Entry == null || ++waitTicks < 3)
+                    if (View?.Map?.ID != Village || GodotSceneService.IsTransitioning || Entry == null || !WaitForReadyFrames(step, true))
                         return;
                     CheckPrologue();
                     CheckSheet();
@@ -179,7 +199,7 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     sawYard |= SceneName == Yard;
                     if (AdvanceDialog())
                         return;
-                    if (!sawYard || View?.Map?.ID != Village || GodotSceneService.IsTransitioning || ++waitTicks < 3)
+                    if (!sawYard || View?.Map?.ID != Village || GodotSceneService.IsTransitioning || !WaitForReadyFrames(step, !View.Player.IsMoving))
                         return;
                     CheckTraining();
                     Next();
@@ -198,14 +218,14 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Next();
                     return;
                 case 8:
-                    if (++waitTicks < 2)
+                    if (!WaitForReadyFrames(step, SheetPanel()?.Visible == true))
                         return;
                     Shot("sheet_full");
                     CheckPanelAndTakeOff(SheetPanel());
                     Next();
                     return;
                 case 9:
-                    if (++waitTicks < 3)
+                    if (!WaitForReadyFrames(step, SheetPanel()?.Visible == true))
                         return;
                     var sheetPanel = SheetPanel();
                     Check(EquipmentService.ItemIn(Hero, "weapon") == null, "Take off in the sheet empties the weapon slot");
@@ -219,13 +239,13 @@ namespace Cthangover.Mods.RpgPlus.Tests
                     Next();
                     return;
                 case 10:
-                    if (RpgWorldHost.Current != null || ++waitTicks < 5)
+                    if (RpgWorldHost.Current != null || !WaitForReadyFrames(step, true))
                         return;
                     Check(GameSession.LoadAndEnter(this, SaveSlot), "the save loads");
                     Next();
                     return;
                 case 11:
-                    if (View?.Map?.ID != Village || GodotSceneService.IsTransitioning || ++waitTicks < 5)
+                    if (View?.Map?.ID != Village || GodotSceneService.IsTransitioning || !WaitForReadyFrames(step, !View.Player.IsMoving))
                         return;
                     CheckLoaded();
                     SaveService.DeleteSave(SaveSlot);
