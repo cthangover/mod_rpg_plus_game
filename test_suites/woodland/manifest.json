@@ -2,5 +2,5 @@
   "name":"Woodland adventure test",
   "description":"The woodland quest chain, loot-to-crafting loop, both shrine choices, repeat-safe rewards and save/load through the real game services and windows.",
   "sources":["src/*.cs"],
-  "depends":["rpg_plus_game>=0.1.0", "ff_battle>=1"]
+  "depends":["rpg_plus_game>=0.1.0", "ff_battle>=0.1.0"]
 }
